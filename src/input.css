@@ -3,6 +3,14 @@
 @tailwind utilities;
 
 /*Table Css*/
-.table {
-    
-}
+    table {
+        @apply mt-10 border-2 border-black bg-black text-white;
+    }
+    /*Cell Css*/
+        td {
+            @apply p-1;
+        }
+    /*Input buttons*/
+        .InputCss {
+            @apply p-5 py-4 w-14 rounded-full bg-gray-900 hover:bg-gray-800 cursor-pointer;
+        }
