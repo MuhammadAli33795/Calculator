@@ -16,7 +16,9 @@ for (let i = 0; i < button.length; i++) {
             case '=':
                 displayI.value = eval(displayI.value);
                 break;
-        
+            case 'C':
+                displayI.value = "";
+                break;
             default:
                 displayI.value += button[i].innerHTML;
                 break;
