@@ -2,9 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/*Input Box*/
+
+    input {
+        @apply border border-black text-xl p-1 px-4;
+    }
+
+
+
 /*Table Css*/
     table {
-        @apply mt-10 border-2 border-black bg-black text-white;
+        @apply  border-2 border-orange-500 bg-black text-white;
     }
     /*Cell Css*/
         td {
