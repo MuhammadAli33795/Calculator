@@ -5,51 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!--Linking Css-->
     <link rel="stylesheet" href="/dist/output.css">
-    <title>Document</title>
-</head>
-<body>
-    <h1 class="text-3xl">This is a Table</h1>
-    <div>
-        <!--Display-->
 
-        <!--Buttons-->
-        <table class="border-2 border-black">
-            <!--Row 1-->
-            <tr>
-                <td>c</td>
-                <td>&#177;</td>
-                <td>|x|</td>
-                <td>&#247;</td>
-            </tr>
-            <!--Row 2-->
-            <tr>
-                <td>7</td>
-                <td>8</td>
-                <td>9</td>
-                <td>&#215;</td>
-            </tr>
-            <!--Row 3-->
-            <tr>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>&#8722;</td>
-            </tr>
-            <!--Row 4-->
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>&#43;</td>
-            </tr>
-            <!--Row 5-->
-            <tr>
-                <td>0</td>
-                <td>.</td>
-                <td>&#61;</td>
-            </tr>
-        </table>
+    <!--Title Name-->
+    <title>Calculator</title>
+</head>
+<body class="text-center">
+    <h1 class="text-4xl">Calculator</h1>
+    <!--Flex Center box-->
+    <div class="flex justify-center">
+        <!--Cal BOx-->
+        <div>
+            <!--Display-->
+                 <input id="display" type="text" value="">
+            <!--Buttons-->
+            <table>
+                <!--Row 1-->
+                <tr> 
+                    <td><button class="InputCss">C</button></td>
+                    <td><button class="InputCss">&#177;</button></td>
+                    <td><button class="InputCss">AC</button></td>
+                    <td><button class="InputCss">&#247;</button></td>
+                </tr>
+                <!--Row 2-->
+                <tr>
+                    <td><button class="InputCss">7</button></td>
+                    <td><button class="InputCss">8</button></td>
+                    <td><button class="InputCss">9</button></td>
+                    <td><button class="InputCss">&#215;</button></td>
+                </tr>
+                <!--Row 3-->
+                <tr>
+                    <td><button class="InputCss">4</button></td>
+                    <td><button class="InputCss">5</button></td>
+                    <td><button class="InputCss">6</button></td>
+                    <td><button class="InputCss">&#8722;</button></td>
+                </tr>
+                <!--Row 4-->
+                <tr>
+                    <td><button class="InputCss">1</button></td>
+                    <td><button class="InputCss">2</button></td>
+                    <td><button class="InputCss">3</button></td>
+                    <td><button class="InputCss">&#43;</button></td>
+                </tr>
+                <!--Row 5-->
+                <tr>
+                    <td><button class="InputCss">0</button></td>
+                    <td><button class="InputCss">.</button></td>
+                    <td><button class="InputCss">&#61;</button></td>
+                    <td><button class="InputCss"></button></td>
+                </tr>
+
+            </table>
+        </div>
     </div>
     <table>
 
