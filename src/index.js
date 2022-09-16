@@ -10,6 +10,16 @@ console.log(button);
 for (let i = 0; i < button.length; i++) {
     //To Know when and where button was pushed i used Event listner
     button[i].addEventListener("click", (show) => {
-        displayI.value += button[i].innerHTML;
+        //displayI.value += button[i].innerHTML;
+        //Added switch for addig Math
+        switch (button[i].innerHTML) {
+            case '=':
+                displayI.value = eval(displayI.value);
+                break;
+        
+            default:
+                displayI.value += button[i].innerHTML;
+                break;
+        }
     })
 }
