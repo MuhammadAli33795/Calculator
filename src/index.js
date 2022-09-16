@@ -20,7 +20,11 @@ for (let i = 0; i < button.length; i++) {
                 displayI.value = "";
                 break;
 
-            case '&lt;-':
+            case '&#177;'://(+/-) changing functionality Functionality
+                displayI.value = "";
+                break;
+
+            case '&lt;-'://Clear one Functionality
                 displayI.value = displayI.value.slice(0,-1);
                 break;
 
