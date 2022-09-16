@@ -19,6 +19,11 @@ for (let i = 0; i < button.length; i++) {
             case 'C':
                 displayI.value = "";
                 break;
+
+            case '&lt;-':
+                displayI.value = displayI.value.slice(0,-1);
+                break;
+
             default:
                 displayI.value += button[i].innerHTML;
                 break;
