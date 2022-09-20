@@ -4,6 +4,7 @@ let display2 = document.getElementById('display2');
 let button = document.querySelectorAll('button');
 console.log(button);
 let count = 0;
+let errorMessage = "'Error' Press C to reset";
 
 
 //To Go through all Buttons in node list i used For loop(For Each can be used however)
@@ -15,8 +16,15 @@ for (let i = 0; i < button.length; i++) {
         //Added switch for addig Math
         switch (button[i].innerHTML) {
             case '=':
-                displayI.value = eval(display2.value);
+                try {
+                    displayI.value = eval(display2.value);
                 count = 1;
+                } catch {
+                    count = errorMessage;
+                    displayI.value = errorMessage;
+                }
+                
+                //console.log(count);
                 break;
             case 'C':
                 displayI.value = "";
@@ -28,16 +36,17 @@ for (let i = 0; i < button.length; i++) {
                 break;
 
             case '&lt;-'://Clear one Functionality
-                if (displayI.value == undefined) {
-                    display2.value.slice(0,-1);
+                if (displayI.value == '' || displayI.value == undefined) {
+                    display2.value = display2.value.slice(0,-1);
                     break;
                 }
+                else {
                 displayI.value = displayI.value.slice(0,-1);
                 break;
+                }
+                
             
-            case '(':
-            case ')':     
-
+            
             case '+'://Repeating Operators User Error Handling    
             case '-':    
             case '*': 
@@ -72,9 +81,10 @@ for (let i = 0; i < button.length; i++) {
 
     }
     function solve() {
-    if (count == 1) {
+    if (count == 1 || count == errorMessage) {
         displayI.value = "";
         display2.value = "";
-        count == 0;
+        count = 0;
+        //console.log(count);
     }
     }
