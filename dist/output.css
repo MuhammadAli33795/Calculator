@@ -551,20 +551,12 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.flex {
-  display: flex;
-}
-
 .table {
   display: table;
 }
 
 .justify-center {
   justify-content: center;
-}
-
-.text-center {
-  text-align: center;
 }
 
 .text-4xl {
@@ -574,13 +566,36 @@ video {
 
 /*Input Box*/
 
-input {
-  border-width: 1px;
+/*Output Box*/
+
+.divCss {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  border-width: 2px;
+  border-bottom-width: 0px;
   --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
-  padding: 0.25rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  border-color: rgb(249 115 22 / var(--tw-border-opacity));
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+input {
+  text-align: right;
+}
+
+/*Input 1 :- Output box*/
+
+.input1 {
+  padding-left: 1px;
+  padding-right: 1px;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+/*Input 2 :- Output box*/
+
+.input2 {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
@@ -619,10 +634,4 @@ td {
 .InputCss:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
-}
-
-@media (min-width: 768px) {
-  .md\:flex {
-    display: flex;
-  }
 }

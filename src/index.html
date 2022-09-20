@@ -18,7 +18,10 @@
         <!--Cal BOx-->
         <div>
             <!--Display-->
-                 <input id="display" class="holdMe" type="text" value="" placeholder="Display">
+            <div class="divCss">
+                 <input id="display" class="input1" type="text" value="" size="17" placeholder="Display"><br>
+                 <input type="text" id="display2" class="input2" size="21" placeholder="Display 2">
+            </div>
             <!--Buttons-->
             <table>
                 <!--Row 1-->
@@ -26,45 +29,44 @@
                     <td><button class="InputCss"></button></td>
                     <td><button class="InputCss"></button></td>
                     <td><button class="InputCss"></button></td>
-                    <td><button class="InputCss"></button></td>  
+                    <td><button class="InputCss" onclick="send()">&#177;</button></td>  
                 </tr>
                 <!--Row 2-->
                 <tr>
                     <td><button class="InputCss">(</button></td>
                     <td><button class="InputCss">)</button></td>
                     <td><button class="InputCss">C</button></td>
-                    <td><button class="InputCss">/</button></td><!--&#247;-->
-                    <!--&#215;-->
+                    <td><button class="InputCss" onclick="send()">/</button></td><!--&#247;-->
                 </tr>
                 <!--Row 3-->
                 <tr>
                     <td><button class="InputCss">7</button></td>
                     <td><button class="InputCss">8</button></td>
                     <td><button class="InputCss">9</button></td>
-                    <td><button class="InputCss">*</button></td><!--&#215;-->
+                    <td><button class="InputCss" onclick="send()">*</button></td><!--&#215;-->
                 </tr>
                 <!--Row 4-->
                 <tr>
                     <td><button class="InputCss">4</button></td>
                     <td><button class="InputCss">5</button></td>
                     <td><button class="InputCss">6</button></td>
-                    <td><button class="InputCss">-</button></td><!--&#8722;-->
+                    <td><button class="InputCss" onclick="send()">-</button></td><!--&#8722;-->
                 </tr>
                 <!--Row 5-->
                 <tr>
                     <td><button class="InputCss">1</button></td>
                     <td><button class="InputCss">2</button></td>
                     <td><button class="InputCss">3</button></td>
-                    <td><button class="InputCss">+</button></td><!--&#43;-->
+                    <td><button class="InputCss" onclick="send()">+</button></td><!--&#43;-->
                 </tr>
                 <!--Row 6-->
                 <tr>
                     <td><button class="InputCss">0</button></td>
-                    <td><button class="InputCss">.</button></td>
-                    <td><button class="InputCss">&lt;-</button></td><!--&#177;-->
-                    <td><button class="InputCss">=</button></td><!--&#61;-->
+                    <td><button class="InputCss" onclick="send()">.</button></td>
+                    <td><button class="InputCss">&lt;-</button></td>
+                    <td><button class="InputCss" onclick="send()">=</button></td><!--&#61;-->
                 </tr>
-
+            
             </table>
         </div>
     </div>

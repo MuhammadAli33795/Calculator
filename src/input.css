@@ -3,13 +3,23 @@
 @tailwind utilities;
 
 /*Input Box*/
-
-    input {
-        @apply border border-black text-xl p-1 px-4;
+/*Output Box*/
+    .divCss {
+       @apply w-max px-2 border-2 border-b-0 border-orange-500;
     }
 
-
-
+    input {
+        @apply  text-right;
+    }
+    /*Input 1 :- Output box*/
+    .input1 {
+        @apply  text-2xl px-px;
+    }
+    /*Input 2 :- Output box*/
+    .input2 {
+        @apply  text-xl;
+    }
+    
 /*Table Css*/
     table {
         @apply  border-2 border-orange-500 bg-black text-white;
