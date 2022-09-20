@@ -5,9 +5,9 @@
 /*Input Box*/
 /*Output Box*/
     .divCss {
-       @apply w-max px-2 border-2 border-b-0 border-orange-500;
+       @apply w-max px-2 border-2 border-orange-500 rounded-md;
     }
-
+    
     input {
         @apply  text-right;
     }
@@ -22,13 +22,27 @@
     
 /*Table Css*/
     table {
-        @apply  border-2 border-orange-500 bg-black text-white;
+       @apply border-2 border-blue-500 rounded-md bg-black text-white;
     }
+    
     /*Cell Css*/
         td {
-            @apply p-1;
+            @apply p-2;
         }
+        /*At sm */
+        /*Cell Css*/
+            td {
+                @apply sm:p-4;
+            }
     /*Input buttons*/
         .InputCss {
-            @apply p-5 py-4 w-14 rounded-full bg-gray-900 hover:bg-gray-800 cursor-pointer;
+            @apply p-4 py-3 w-12 rounded-full  bg-orange-500  hover:bg-orange-300 cursor-pointer;
         }
+        /*At sm Input Buttons*/
+            .InputCss {
+                @apply sm:p-4 sm:py-3 sm:w-12 sm:rounded-3xl;
+            }
+/*Table Background*/
+table {
+    @apply bg-tableImage bg-center bg-cover;
+}
