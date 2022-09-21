@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'tableImage': "url('/img/CalBg-1.jpg')",
-        'Bgimage': "url('/img/MainBg-1.jpg')",
+        'tableImage': "url('/img/PinkBG-1080p.jpg')",
+        'Bgimage': "url('/img/bgtable.webp')",
       }
     },
   },

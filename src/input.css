@@ -2,27 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/*Calculator Heading*/
+.calHead {
+    @apply text-4xl text-white my-5;
+}
+    /*At Sm*/
+    .calHead {
+    @apply sm:text-5xl sm:my-8;
+    }
 /*Input Box*/
 /*Output Box*/
     .divCss {
-       @apply w-max px-2 border-2 border-orange-500 rounded-md;
+       @apply w-max px-2 lg:px-2 border-2 bg-white border-orange-500 rounded-md;
     }
     
     input {
-        @apply  text-right;
+        @apply  text-right sm:py-1 lg:py-1;
     }
     /*Input 1 :- Output box*/
     .input1 {
-        @apply  text-2xl px-px;
+        @apply  text-2xl px-px border-b sm:border-b-2 sm:text-3xl lg:text-4xl;
     }
     /*Input 2 :- Output box*/
     .input2 {
-        @apply  text-xl;
+        @apply  text-xl sm:text-2xl lg:text-3xl;
     }
     
 /*Table Css*/
     table {
-       @apply border-2 border-blue-500 rounded-md bg-black text-white;
+       @apply border-2 border-blue-500 rounded-lg bg-black text-white;
     }
     
     /*Cell Css*/
@@ -30,19 +39,30 @@
             @apply p-2;
         }
         /*At sm */
-        /*Cell Css*/
             td {
                 @apply sm:p-4;
             }
+        /*At lg */
+            td {
+                @apply lg:p-5;
+            }    
     /*Input buttons*/
         .InputCss {
-            @apply p-4 py-3 w-12 rounded-full  bg-orange-500  hover:bg-orange-300 cursor-pointer;
+            @apply p-4 py-3 w-12 drop-shadow-2xl rounded-full  bg-orange-500  hover:bg-orange-300 cursor-pointer;
         }
         /*At sm Input Buttons*/
             .InputCss {
-                @apply sm:p-4 sm:py-3 sm:w-12 sm:rounded-3xl;
+                @apply sm:p-5 sm:py-3 sm:w-16  sm:rounded-3xl;
             }
+        /*At lg Input Buttons*/
+            .InputCss {
+                @apply lg:p-8 lg:py-3 lg:w-20 lg:rounded-lg;
+            }    
 /*Table Background*/
 table {
     @apply bg-tableImage bg-center bg-cover;
+}
+/*Body BackGround*/
+body {
+    @apply bg-Bgimage bg-cover bg-center pb-16;
 }

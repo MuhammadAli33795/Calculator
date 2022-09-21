@@ -6,6 +6,9 @@ console.log(button);
 let count = 0;
 let errorMessage = "'Error' Press C to reset";
 
+let viewPortWidth = window.innerWidth;//To detect screen change
+console.log(viewPortWidth);
+inputSize();
 
 //To Go through all Buttons in node list i used For loop(For Each can be used however)
 
@@ -87,4 +90,21 @@ for (let i = 0; i < button.length; i++) {
         count = 0;
         //console.log(count);
     }
+    }
+    function inputSize() {
+        if (viewPortWidth >= 640 && viewPortWidth <= 1024) {
+            displayI.size = 21;
+            display2.size = 29;
+            console.log(displayI.size);
+            console.log(display2.size);
+        } else if (viewPortWidth >= 1024) {
+            displayI.size = 23;
+            display2.size = 29;
+            console.log(displayI.size);
+            console.log(display2.size);
+        } else {
+            
+        }
+                
+
     }
