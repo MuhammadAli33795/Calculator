@@ -6,9 +6,15 @@ console.log(button);
 let count = 0;
 let errorMessage = "'Error' Press C to reset";
 
-let viewPortWidth = window.innerWidth;//To detect screen change
+//To detect screen change
+let viewPortWidth = window.innerWidth;
 console.log(viewPortWidth);
 inputSize();
+
+//Adds audio on Events
+    let hoverSound = new Audio('/audio/HoverSoundE.mp3');
+    console.log(typeof(hoverSound));
+    let clickSound;
 
 //To Go through all Buttons in node list i used For loop(For Each can be used however)
 
@@ -69,6 +75,9 @@ for (let i = 0; i < button.length; i++) {
                 break;
         }
     })
+    button[i].addEventListener("onmouseover" ,(hs) => {
+        hoverSound.play();
+    })
 }
 
 
@@ -83,6 +92,7 @@ for (let i = 0; i < button.length; i++) {
     displayI.value = "";
 
     }
+    //Resets the value after solution
     function solve() {
     if (count == 1 || count == errorMessage) {
         displayI.value = "";
@@ -91,20 +101,25 @@ for (let i = 0; i < button.length; i++) {
         //console.log(count);
     }
     }
+    //Changes Output box size according to port
     function inputSize() {
         if (viewPortWidth >= 640 && viewPortWidth <= 1024) {
             displayI.size = 21;
             display2.size = 29;
-            console.log(displayI.size);
-            console.log(display2.size);
         } else if (viewPortWidth >= 1024) {
             displayI.size = 23;
             display2.size = 29;
-            console.log(displayI.size);
-            console.log(display2.size);
         } else {
             
         }
-                
-
     }
+    /*
+    //Adds audio on Events
+    let hoverSound = new Audio('/audio/HoverSoundE.mp3');
+    console.log(typeof(hoverSound));
+    let clickSound;
+
+    button[i].addEventListener("onmouseover" ,(hs) => {
+        hoverSound.play();
+    })
+    */
