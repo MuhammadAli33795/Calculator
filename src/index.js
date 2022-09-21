@@ -49,14 +49,14 @@ for (let i = 0; i < button.length; i++) {
                 }
                 
             
-            
+             //disValue2 == '-' ||
             case '+'://Repeating Operators User Error Handling    
-            case '-':    
+            //case '-':    
             case '*': 
             case '/': 
             case '.':
                 let disValue2 = display2.value[display2.value.length - 1];//Storing value for ease of handling
-                if (disValue2 == '+' || disValue2 == '-' || disValue2 == '*' || disValue2 == '/' || disValue2 == '.' || disValue2 == undefined) {
+                if (disValue2 == '+' || disValue2 == '*' || disValue2 == '/' || disValue2 == '.' || disValue2 == undefined) {
                     break;
                 }       
               
