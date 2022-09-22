@@ -13,62 +13,73 @@
 
     <link rel="shortcut icon" href="#">
 </head>
-<body class="">
-    <!--Heading-->
-    <div class="text-center">
-        <h1 class="calHead">Calculator</h1>
-    </div>
-    
-    <!--Flex Center box-->
-    <div class="flex justify-center backGround">
-        <!--Cal BOx-->
-        <div>
-            <!--Display-->
-            <div class="divCss">
-                 <input id="display" class="input1" type="text" value="" size="17" placeholder="Display"><br>
-                 <input type="text" id="display2" class="input2" size="21" placeholder="Display 2">
-            </div>
-            <!--Buttons-->
-            <table>
-                <!--Row 1-->
-                <tr>
-                    <td><button class="InputCss">(</button></td>
-                    <td><button class="InputCss">)</button></td>
-                    <td><button class="InputCss">C</button></td>
-                    <td><button class="InputCss" onclick="send()">/</button></td><!--&#247;-->
-                </tr>
-                <!--Row 2-->
-                <tr>
-                    <td><button class="InputCss">7</button></td>
-                    <td><button class="InputCss">8</button></td>
-                    <td><button class="InputCss">9</button></td>
-                    <td><button class="InputCss" onclick="send()">*</button></td><!--&#215;-->
-                </tr>
-                <!--Row 3-->
-                <tr>
-                    <td><button class="InputCss">4</button></td>
-                    <td><button class="InputCss">5</button></td>
-                    <td><button class="InputCss">6</button></td>
-                    <td><button class="InputCss" onclick="send()">-</button></td><!--&#8722;-->
-                </tr>
-                <!--Row 4-->
-                <tr>
-                    <td><button class="InputCss">1</button></td>
-                    <td><button class="InputCss">2</button></td>
-                    <td><button class="InputCss">3</button></td>
-                    <td><button class="InputCss" onclick="send()">+</button></td><!--&#43;-->
-                </tr>
-                <!--Row 5-->
-                <tr>
-                    <td><button class="InputCss">0</button></td>
-                    <td><button class="InputCss" onclick="send()">.</button></td>
-                    <td><button class="InputCss">&lt;-</button></td>
-                    <td><button class="InputCss" onclick="send()">=</button></td><!--&#61;-->
-                </tr>
-            
-            </table>
+<body>
+    <nav>
+        <button class="InputCss ml-5">P</button>
+    </nav>
+    <main>
+        <!--Heading-->
+        <div class="text-center">
+            <h1 class="calHead">Calculator</h1>
         </div>
-    </div>
+        
+        <!--Flex Center box-->
+        <div class="flex justify-center backGround">
+            <!--Cal BOx-->
+            <div>
+                <!--Display-->
+                <div class="divCss">
+                    <input id="display" class="input1" type="text" value="" size="17" placeholder="Display"><br>
+                    <input type="text" id="display2" class="input2" size="21" placeholder="Display 2">
+                </div>
+                <!--Buttons-->
+                <table>
+                    <!--Row 1-->
+                    <tr>
+                        <td><button class="InputCss">(</button></td>
+                        <td><button class="InputCss">)</button></td>
+                        <td><button class="InputCss">C</button></td>
+                        <td><button class="InputCss" onclick="send()">/</button></td>
+                        <!--&#247;-->
+                    </tr>
+                    <!--Row 2-->
+                    <tr>
+                        <td><button class="InputCss">7</button></td>
+                        <td><button class="InputCss">8</button></td>
+                        <td><button class="InputCss">9</button></td>
+                        <td><button class="InputCss" onclick="send()">*</button></td>
+                        <!--&#215;-->
+                    </tr>
+                    <!--Row 3-->
+                    <tr>
+                        <td><button class="InputCss">4</button></td>
+                        <td><button class="InputCss">5</button></td>
+                        <td><button class="InputCss">6</button></td>
+                        <td><button class="InputCss" onclick="send()">-</button></td>
+                        <!--&#8722;-->
+                    </tr>
+                    <!--Row 4-->
+                    <tr>
+                        <td><button class="InputCss">1</button></td>
+                        <td><button class="InputCss">2</button></td>
+                        <td><button class="InputCss">3</button></td>
+                        <td><button class="InputCss" onclick="send()">+</button></td>
+                        <!--&#43;-->
+                    </tr>
+                    <!--Row 5-->
+                    <tr>
+                        <td><button class="InputCss">0</button></td>
+                        <td><button class="InputCss" onclick="send()">.</button></td>
+                        <td><button class="InputCss">&lt;-</button></td>
+                        <td><button class="InputCss" onclick="send()">=</button></td>
+                        <!--&#61;-->
+                    </tr>
+        
+                </table>
+            </div>
+        </div>
+    </main>
+    
     <!--Script For Nav-->
     <script src="/src/index.js"></script>
 </body>

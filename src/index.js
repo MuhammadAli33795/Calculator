@@ -15,6 +15,9 @@ inputSize();
 let buttonSound = new Audio('/audio/ButtonPopSound.mp3');
 let resultSound = new Audio('/audio/resultSound.mp3');
 let errorSound = new Audio('/audio/errorSound.mp3');
+//Bg Sound
+let bgSound1 = new Audio('/audio/bgSound1.mp3');
+let bgSound2 = new Audio('/audio/bgSound2.mp3');
 
 /*Feature Disabled
 //to add sound on hover
@@ -27,12 +30,13 @@ for (let i = 0; i < button.length; i++) {
     button[i].addEventListener("click", (show) => {
             //Debug :- displayI.value += button[i].innerHTML;   
         //Adding Button audio
-        if (button[i].innerHTML != '=') {
-            buttonSound.play();
-        }
-                                                  
+        buttonExclusion(i);
+
         //Added switch for addig Math
         switch (button[i].innerHTML) {
+            case 'P':
+                playbg();
+                break;
             case '=':
                 try {
                     displayI.value = eval(display2.value);
@@ -118,3 +122,27 @@ for (let i = 0; i < button.length; i++) {
             display2.size = 29;
         } else {}
     }
+    //Button sound Exclusion
+    function buttonExclusion(flag) {
+        switch (button[flag].innerHTML) {
+            case '=':
+                break;
+
+            case 'P':
+                break;
+
+            default:
+                buttonSound.play();
+                break;
+        }
+    };
+    
+    //Bg Audio
+    function playbg() {
+    if (bgSound1.paused == true && bgSound2.paused == true) {
+        bgSound1.play();
+    } else if (bgSound1.paused == true) {
+        bgSound2.play();
+      }    
+    };
+    
