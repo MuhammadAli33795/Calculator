@@ -18,25 +18,28 @@
 </head>
 <body>
     <nav>
+        <!--For Mobiles-->
         <!--Menue-->
         <div class="cursor-pointer sm:hidden" id="menue">
-            <span><i class="fa-solid fa-bars"></i></span>
+            <span><i class="fa-solid fa-bars"></i> Menue</span>
         </div>
         <!--Drop Menue-->
-        <div class="dropMenue hidden">
+        <div class="dropMenue hidden" id="navHidden">
             <!--Themes-->
             <h2 class="heading2">Themes</h2>
-            <a href="./" class="navButton" id="theme1"><i class="fa-solid fa-landmark"></i></a>
-            <a href="./" class="navButton" id="theme2"><i class="fa-solid fa-face-smile"></i></a>
+            <button class="navButton" id="theme1"><i class="fa-solid fa-landmark"></i></button>
+            <button class="navButton" id="theme2"><i class="fa-solid fa-face-smile"></i></button>
             <!--Song Control-->
             <h2 class="heading2">Song</h2>
-            <a href="./" class="navButton" id="songOn"><i class="fa-sharp fa-solid fa-volume-high"></i></a>
-            <a href="./" class="navButton" id="songOff"><i class="fa-solid fa-volume-xmark"></i></a>
+            <button class="navButton" id="songOn"><i class="fa-sharp fa-solid fa-volume-high"></i></button>
+            <button class="navButton" id="songOff"><i class="fa-solid fa-volume-xmark"></i></button>
             <!--Button Audio Control-->
             <h2 class="heading2">Button Audio</h2>
-            <a href="./" class="navButton" id="audioOn"><i class="fa-sharp fa-solid fa-volume-high"></i></a>
-            <a href="./" class="navButton" id="audioOff"><i class="fa-solid fa-volume-xmark"></i></a>
+            <button class="navButton" id="audioOn"><i class="fa-sharp fa-solid fa-volume-high"></i></button>
+            <button class="navButton" id="audioOff"><i class="fa-solid fa-volume-xmark"></i></button>
         </div>
+
+
     </nav>
     <!--
     <button class="InputCss ml-5">P</button>
@@ -106,5 +109,6 @@
     
     <!--Script For Nav-->
     <script src="/src/index.js"></script>
+    <script src="/src/navMobile.js"></script>
 </body>
 </html>

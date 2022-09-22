@@ -15,6 +15,7 @@ inputSize();
 let buttonSound = new Audio('/audio/ButtonPopSound.mp3');
 let resultSound = new Audio('/audio/resultSound.mp3');
 let errorSound = new Audio('/audio/errorSound.mp3');
+let mute = 1;
 //Bg Sound
 let bgSound1 = new Audio('/audio/bgSound1.mp3');
 let bgSound2 = new Audio('/audio/bgSound2.mp3');
@@ -30,23 +31,20 @@ for (let i = 0; i < button.length; i++) {
     button[i].addEventListener("click", (show) => {
             //Debug :- displayI.value += button[i].innerHTML;   
         //Adding Button audio
-        buttonExclusion(i);
+            if (mute == "1") {buttonExclusion(i);}//To Stop and Play sounds
 
         //Added switch for addig Math
         switch (button[i].innerHTML) {
-            case 'P':
-                playbg();
-                break;
             case '=':
                 try {
                     displayI.value = eval(display2.value);
                 count = 1;
-                resultSound.play();//Adding sound on Result
+                if (mute == "1") {resultSound.play();/*Adding sound on Result*/}//To Stop and Play sounds
                 break;
                 } catch {
                     count = errorMessage;
                     displayI.value = errorMessage;
-                    errorSound.play();//Error Sound
+                    if (mute == "1") {errorSound.play();/*errorSound*/}//To Stop and Play sounds
                     break;
                 }
                 break;
@@ -54,6 +52,11 @@ for (let i = 0; i < button.length; i++) {
                 displayI.value = "";
                 display2.value = "";
                 break;
+            case '<i class="fa-solid fa-landmark"></i>': //Theme Icon
+            case '<i class="fa-solid fa-face-smile"></i>'://Theme Icon2
+            case '<i class="fa-sharp fa-solid fa-volume-high"></i>'://VolumeON
+            case '<i class="fa-solid fa-volume-xmark"></i>'://VolumeOff
+                break;    
             /*
             case '&#177;'://(+/-) changing functionality Functionality
                 displayI.value = PM();
@@ -77,7 +80,7 @@ for (let i = 0; i < button.length; i++) {
                 let disValue2 = display2.value[display2.value.length - 1];//Storing value for ease of handling
                 if (disValue2 == '+' || disValue2 == '*' || disValue2 == '/' || disValue2 == '.' || disValue2 == undefined) {
                     break;
-                }       
+                }           
             default:
                 solve();//reset Calculator After peroforming 
                 displayI.value += button[i].innerHTML;
@@ -94,9 +97,7 @@ for (let i = 0; i < button.length; i++) {
 
 
 /*Additional Functions*/
-   function PM() {
-    
-   }
+
    //Push Value to input 2
    function send() {
     display2.value += displayI.value;
@@ -126,11 +127,7 @@ for (let i = 0; i < button.length; i++) {
     function buttonExclusion(flag) {
         switch (button[flag].innerHTML) {
             case '=':
-                break;
-
-            case 'P':
-                break;
-
+                break;    
             default:
                 buttonSound.play();
                 break;
@@ -146,3 +143,29 @@ for (let i = 0; i < button.length; i++) {
       }    
     };
     
+    //Mobile Nav Functionality
+        //Themes
+        let theme1 = document.getElementById('theme1');
+        let theme2 = document.getElementById('theme2');
+        //Background Music
+        let song1 = document.getElementById('songOn');
+        let song2 = document.getElementById('songOff');
+        //Using Event listner to know when buttons are clicked
+               song1.addEventListener('click', () => {
+                playbg();
+               });
+               song2.addEventListener('click', () => {
+                bgSound1.pause();
+                bgSound2.pause();
+               });
+        //Button Audio
+        let buttonSound1 = document.getElementById('audioOn');
+        let buttonSound2 = document.getElementById('audioOff');
+        //Using Event listner to know when buttons are clicked
+               buttonSound1.addEventListener('click', () => {
+                mute = 1;
+               });
+               buttonSound2.addEventListener('click', () => {
+                mute = 0;
+               });
+        
