@@ -11,13 +11,13 @@ let viewPortWidth = window.innerWidth;
 console.log(viewPortWidth);
 inputSize();
 
+/*
 //Adds audio on Events
     let hoverSound = new Audio('/audio/HoverSoundE.mp3');
     console.log(typeof(hoverSound));
     let clickSound;
-
+*/
 //To Go through all Buttons in node list i used For loop(For Each can be used however)
-
 for (let i = 0; i < button.length; i++) {
     //To Know when and where button was pushed i used Event listner
     button[i].addEventListener("click", (show) => {
@@ -53,8 +53,6 @@ for (let i = 0; i < button.length; i++) {
                 displayI.value = displayI.value.slice(0,-1);
                 break;
                 }
-                
-            
              //disValue2 == '-' ||
             case '+'://Repeating Operators User Error Handling    
             //case '-':    
@@ -65,13 +63,9 @@ for (let i = 0; i < button.length; i++) {
                 if (disValue2 == '+' || disValue2 == '*' || disValue2 == '/' || disValue2 == '.' || disValue2 == undefined) {
                     break;
                 }       
-              
             default:
                 solve();//reset Calculator After peroforming 
                 displayI.value += button[i].innerHTML;
-                
-                //console.log(display2.value);
-                //console.log(display2.value[display2.value.length - 1]);
                 break;
         }
     })
