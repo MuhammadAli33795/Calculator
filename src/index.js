@@ -13,6 +13,9 @@ inputSize();
 
 //Audio Keys
 let buttonSound = new Audio('/audio/ButtonPopSound.mp3');
+let resultSound = new Audio('/audio/resultSound.mp3');
+let errorSound = new Audio('/audio/errorSound.mp3');
+
 /*Feature Disabled
 //to add sound on hover
 let hoverSound = new Audio('/audio/HoverSound.mp3');
@@ -22,8 +25,7 @@ let hoverSound = new Audio('/audio/HoverSound.mp3');
 for (let i = 0; i < button.length; i++) {
     //To Know when and where button was pushed i used Event listner
     button[i].addEventListener("click", (show) => {
-            //Debug :- displayI.value += button[i].innerHTML;
-        console.log(button[i].innerHTML)    
+            //Debug :- displayI.value += button[i].innerHTML;   
         //Adding Button audio
         if (button[i].innerHTML != '=') {
             buttonSound.play();
@@ -35,10 +37,12 @@ for (let i = 0; i < button.length; i++) {
                 try {
                     displayI.value = eval(display2.value);
                 count = 1;
+                resultSound.play();//Adding sound on Result
                 break;
                 } catch {
                     count = errorMessage;
                     displayI.value = errorMessage;
+                    errorSound.play();//Error Sound
                     break;
                 }
                 break;
