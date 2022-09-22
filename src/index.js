@@ -2,26 +2,26 @@
 let displayI = document.getElementById('display');
 let display2 = document.getElementById('display2');
 let button = document.querySelectorAll('button');
-console.log(button);
+console.log('Node List = ' + button);
 let count = 0;
 let errorMessage = "'Error' Press C to reset";
 
 //To detect screen change
 let viewPortWidth = window.innerWidth;
-console.log(viewPortWidth);
+console.log('View Port Width = ' + viewPortWidth);
 inputSize();
 
-/*
-//Adds audio on Events
-    let hoverSound = new Audio('/audio/HoverSoundE.mp3');
-    console.log(typeof(hoverSound));
-    let clickSound;
-*/
+//Audio Keys
+let buttonSound = document.getElementById('myAudio0');
+let hoverSound = document.getElementById('myAudio1');
+
 //To Go through all Buttons in node list i used For loop(For Each can be used however)
 for (let i = 0; i < button.length; i++) {
     //To Know when and where button was pushed i used Event listner
     button[i].addEventListener("click", (show) => {
-        //displayI.value += button[i].innerHTML;
+                                                    //Debug :- displayI.value += button[i].innerHTML;
+        //Adding Button audio
+        buttonSound.play();                                            
         //Added switch for addig Math
         switch (button[i].innerHTML) {
             case '=':
@@ -105,13 +105,3 @@ for (let i = 0; i < button.length; i++) {
             
         }
     }
-    /*
-    //Adds audio on Events
-    let hoverSound = new Audio('/audio/HoverSoundE.mp3');
-    console.log(typeof(hoverSound));
-    let clickSound;
-
-    button[i].addEventListener("onmouseover" ,(hs) => {
-        hoverSound.play();
-    })
-    */
