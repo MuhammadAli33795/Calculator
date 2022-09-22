@@ -14,7 +14,7 @@
 /*Input Box*/
 /*Output Box*/
     .divCss {
-       @apply w-max px-2 lg:px-2 border-2 bg-white border-orange-500 rounded-md;
+       @apply w-max px-2 lg:px-2 border-2 bg-white border-orange-500 rounded-md text-gray-500;
     }
     
     input {
@@ -48,7 +48,7 @@
             }    
     /*Input buttons*/
         .InputCss {
-            @apply p-4 py-3 w-12 drop-shadow-md rounded-full  bg-orange-500   cursor-pointer hover:bg-orange-300 transition ease-in-out;
+            @apply p-4 py-3 w-12 drop-shadow-md rounded-full  bg-orange-500   cursor-pointer hover:bg-orange-300 transition delay-75 ease-in-out;
         }
         /*At sm Input Buttons*/
             .InputCss {

@@ -12,38 +12,45 @@ console.log('View Port Width = ' + viewPortWidth);
 inputSize();
 
 //Audio Keys
-let buttonSound = document.getElementById('myAudio0');
-let hoverSound = document.getElementById('myAudio1');
+let buttonSound = new Audio('/audio/ButtonPopSound.mp3');
+/*Feature Disabled
+//to add sound on hover
+let hoverSound = new Audio('/audio/HoverSound.mp3');
+*/
 
 //To Go through all Buttons in node list i used For loop(For Each can be used however)
 for (let i = 0; i < button.length; i++) {
     //To Know when and where button was pushed i used Event listner
     button[i].addEventListener("click", (show) => {
-                                                    //Debug :- displayI.value += button[i].innerHTML;
+            //Debug :- displayI.value += button[i].innerHTML;
+        console.log(button[i].innerHTML)    
         //Adding Button audio
-        buttonSound.play();                                            
+        if (button[i].innerHTML != '=') {
+            buttonSound.play();
+        }
+                                                  
         //Added switch for addig Math
         switch (button[i].innerHTML) {
             case '=':
                 try {
                     displayI.value = eval(display2.value);
                 count = 1;
+                break;
                 } catch {
                     count = errorMessage;
                     displayI.value = errorMessage;
+                    break;
                 }
-                
-                //console.log(count);
                 break;
             case 'C':
                 displayI.value = "";
                 display2.value = "";
                 break;
-
+            /*
             case '&#177;'://(+/-) changing functionality Functionality
                 displayI.value = PM();
                 break;
-
+            */
             case '&lt;-'://Clear one Functionality
                 if (displayI.value == '' || displayI.value == undefined) {
                     display2.value = display2.value.slice(0,-1);
@@ -69,12 +76,16 @@ for (let i = 0; i < button.length; i++) {
                 break;
         }
     })
-
+    /*//Feature Disabled
+    //Adding audio class for hover sound
+        button[i].addEventListener('mouseover' , () => {
+        hoverSound.play();
+        });
+    */
 }
 
 
 /*Additional Functions*/
-
    function PM() {
     
    }
@@ -101,7 +112,5 @@ for (let i = 0; i < button.length; i++) {
         } else if (viewPortWidth >= 1024) {
             displayI.size = 23;
             display2.size = 29;
-        } else {
-            
-        }
+        } else {}
     }
