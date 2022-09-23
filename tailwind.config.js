@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'tableImage': "url('/img/PinkBG-1080p.jpg')",
-        'Bgimage': "url('/img/bgtable.webp')",
+        'Bgimage': "url('/img/BGblue.png')",
       }
     },
   },

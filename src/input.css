@@ -63,11 +63,11 @@
         }
         /*At sm */
             td {
-                @apply sm:p-4;
+                @apply sm:p-4 sm:py-2;
             }
         /*At lg */
             td {
-                @apply lg:p-5;
+                @apply lg:p-5 lg:py-3;
             }    
     /*Input buttons*/
         .InputCss {

@@ -908,6 +908,8 @@ td {
 @media (min-width: 640px) {
   td {
     padding: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
 }
 
@@ -916,6 +918,8 @@ td {
 @media (min-width: 1024px) {
   td {
     padding: 1.25rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
   }
 }
 
@@ -982,7 +986,7 @@ table {
 /*Body BackGround*/
 
 body {
-  background-image: url('/img/bgtable.webp');
+  background-image: url('/img/BGblue.png');
   background-size: cover;
   background-position: center;
   padding-bottom: 4rem;
