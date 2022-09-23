@@ -567,6 +567,10 @@ video {
   display: none;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -583,10 +587,7 @@ video {
 
 /*Menue Button*/
 
-#menue {
-  margin-left: 1.25rem;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
+.menueCss {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
   transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
@@ -596,9 +597,54 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-#menue:hover {
+.menueCss:hover {
   --tw-text-opacity: 1;
   color: rgb(249 168 212 / var(--tw-text-opacity));
+}
+
+.menueCss {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+@media (min-width: 640px) {
+  .menueCss {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .menueCss {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
+.menueCss {
+  margin-left: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .menueCss {
+    margin-left: 2.5rem;
+    margin-top: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .menueCss {
+    margin-left: 4rem;
+    margin-top: 4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .menueCss {
+    margin-left: 5rem;
+    margin-top: 5rem;
+  }
 }
 
 /*Drop Menue*/
@@ -612,12 +658,33 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), #f472b6, var(--tw-gradient-to);
   --tw-gradient-to: #f9a8d4;
   padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
   text-align: center;
   --tw-text-opacity: 1;
   color: rgb(203 213 225 / var(--tw-text-opacity));
   --tw-brightness: brightness(1.25);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+  margin-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .dropMenue {
+    margin-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .dropMenue {
+    margin-top: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dropMenue {
+    margin-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
 }
 
 /*Heading Css*/
@@ -627,6 +694,22 @@ video {
   margin-bottom: 0.5rem;
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+@media (min-width: 640px) {
+  .heading2 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heading2 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
 }
 
 /*Nav Buttons*/
@@ -659,6 +742,26 @@ video {
   color: rgb(203 213 225 / var(--tw-text-opacity));
 }
 
+@media (min-width: 640px) {
+  .navButton {
+    padding: 0.5rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navButton {
+    padding: 0.75rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
 /*Calculator Heading*/
 
 .calHead {
@@ -677,6 +780,15 @@ video {
     margin-top: 2rem;
     margin-bottom: 2rem;
     font-size: 3rem;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .calHead {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    font-size: 4.5rem;
     line-height: 1;
   }
 }
@@ -874,10 +986,4 @@ body {
   background-size: cover;
   background-position: center;
   padding-bottom: 4rem;
-}
-
-@media (min-width: 640px) {
-  .sm\:hidden {
-    display: none;
-  }
 }

@@ -20,7 +20,7 @@
     <nav>
         <!--For Mobiles-->
         <!--Menue-->
-        <div class="cursor-pointer sm:hidden" id="menue">
+        <div class="cursor-pointer menueCss" id="menue">
             <span><i class="fa-solid fa-bars"></i> Menue</span>
         </div>
         <!--Drop Menue-->
@@ -38,13 +38,11 @@
             <button class="navButton" id="audioOn"><i class="fa-sharp fa-solid fa-volume-high"></i></button>
             <button class="navButton" id="audioOff"><i class="fa-solid fa-volume-xmark"></i></button>
         </div>
-
-
     </nav>
     <!--
     <button class="InputCss ml-5">P</button>
     -->
-    <main>
+    <main class="h-screen">
         <!--Heading-->
         <div class="text-center">
             <h1 class="calHead">Calculator</h1>
@@ -108,7 +106,8 @@
     </main>
     
     <!--Script For Nav-->
-    <script src="/src/index.js"></script>
-    <script src="/src/navMobile.js"></script>
+    <script src="/src/index.js"></script><!--Main Calculator Functionality-->
+    <script src="/src/jsfiles/navMobile.js"></script><!--Navigation Bars-->
+    <script src="/src/jsfiles/audio.js"></script><!--Audio Script-->
 </body>
 </html>

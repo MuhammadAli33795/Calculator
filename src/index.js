@@ -15,10 +15,8 @@ inputSize();
 let buttonSound = new Audio('/audio/ButtonPopSound.mp3');
 let resultSound = new Audio('/audio/resultSound.mp3');
 let errorSound = new Audio('/audio/errorSound.mp3');
-let mute = 1;
-//Bg Sound
-let bgSound1 = new Audio('/audio/bgSound1.mp3');
-let bgSound2 = new Audio('/audio/bgSound2.mp3');
+
+
 
 /*Feature Disabled
 //to add sound on hover
@@ -134,38 +132,6 @@ for (let i = 0; i < button.length; i++) {
         }
     };
     
-    //Bg Audio
-    function playbg() {
-    if (bgSound1.paused == true && bgSound2.paused == true) {
-        bgSound1.play();
-    } else if (bgSound1.paused == true) {
-        bgSound2.play();
-      }    
-    };
     
-    //Mobile Nav Functionality
-        //Themes
-        let theme1 = document.getElementById('theme1');
-        let theme2 = document.getElementById('theme2');
-        //Background Music
-        let song1 = document.getElementById('songOn');
-        let song2 = document.getElementById('songOff');
-        //Using Event listner to know when buttons are clicked
-               song1.addEventListener('click', () => {
-                playbg();
-               });
-               song2.addEventListener('click', () => {
-                bgSound1.pause();
-                bgSound2.pause();
-               });
-        //Button Audio
-        let buttonSound1 = document.getElementById('audioOn');
-        let buttonSound2 = document.getElementById('audioOff');
-        //Using Event listner to know when buttons are clicked
-               buttonSound1.addEventListener('click', () => {
-                mute = 1;
-               });
-               buttonSound2.addEventListener('click', () => {
-                mute = 0;
-               });
-        
+    
+    
