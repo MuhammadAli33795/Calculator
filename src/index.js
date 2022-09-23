@@ -119,6 +119,7 @@ for (let i = 0; i < button.length; i++) {
         } else if (viewPortWidth >= 1024) {
             displayI.size = 23;
             display2.size = 29;
+            
         } else {}
     }
     //Button sound Exclusion
@@ -131,7 +132,5 @@ for (let i = 0; i < button.length; i++) {
                 break;
         }
     };
-    
-    
     
     

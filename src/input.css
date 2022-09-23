@@ -54,7 +54,7 @@
     
 /*Table Css*/
     table {
-       @apply border-2 border-blue-500 rounded-lg bg-black text-white;
+       @apply border-2 border-blue-400 rounded-lg text-white;
     }
     
     /*Cell Css*/
@@ -89,3 +89,30 @@ table {
 body {
     @apply bg-Bgimage bg-cover bg-center pb-16;
 }
+
+/*Theme 2*/
+    /*Body*/
+    .bodyTheme2 {
+        @apply bg-BgimageTheme2;
+    }
+    /*Menue*/
+    .menueCssTheme2 {
+        @apply hover:text-orange-500;
+    }
+    /*Drop Menue*/
+    .dropMenueTheme2 {
+        @apply from-gray-900 via-gray-700  to-gray-500;
+    }
+    /*CalBox*/
+    .calBoxTheme2 {
+        @apply border-black border-4 rounded-lg;
+    }
+    /*Input
+    .divCsstheme2 {
+        @apply border-orange-500; 
+    }*/
+    /*Table*/
+    .tableTheme2 {
+        @apply bg-tableImageTheme2 border-none;
+    }
+    

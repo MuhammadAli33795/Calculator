@@ -19,7 +19,7 @@
     <link rel="shortcut icon" href="/img/favicon_io/favicon-16x16.png">
     <link rel="shortcut icon" href="#">
 </head>
-<body>
+<body class="">
     <nav>
         <!--For Mobiles-->
         <!--Menue-->
@@ -30,8 +30,8 @@
         <div class="dropMenue hidden" id="navHidden">
             <!--Themes-->
             <h2 class="heading2">Themes</h2>
-            <button class="navButton" id="theme1"><i class="fa-solid fa-landmark"></i></button>
-            <button class="navButton" id="theme2"><i class="fa-solid fa-face-smile"></i></button>
+            <button class="navButton" id="theme1"><i class="fa-solid fa-face-smile"></i></button>
+            <button class="navButton" id="theme2"><i class="fa-solid fa-landmark"></i></button>
             <!--Song Control-->
             <h2 class="heading2">Song</h2>
             <button class="navButton" id="songOn"><i class="fa-sharp fa-solid fa-volume-high"></i></button>
@@ -42,29 +42,27 @@
             <button class="navButton" id="audioOff"><i class="fa-solid fa-volume-xmark"></i></button>
         </div>
     </nav>
-    <!--
-    <button class="InputCss ml-5">P</button>
-    -->
+    
     <main class="h-screen">
         <!--Heading-->
-        <div class="text-center">
+        <div class="text-center ">
             <h1 class="calHead">Calculator</h1>
         </div>
         
         <!--Flex Center box-->
         <div class="flex justify-center backGround">
             <!--Cal BOx-->
-            <div>
+            <div class="" id="callBox">
                 <!--Display-->
-                <div class="divCss">
+                <div class="divCss" id="output">
                     <input id="display" class="input1" type="text" value="" size="17" placeholder="Display"><br>
                     <input type="text" id="display2" class="input2" size="21" placeholder="Display 2">
                 </div>
                 <!--Buttons-->
-                <table>
+                <table id="tableId" class="">
                     <!--Row 1-->
                     <tr>
-                        <td><button class="InputCss">(</button></td>
+                        <td><button class="InputCss InputCssTheme2">(</button></td>
                         <td><button class="InputCss">)</button></td>
                         <td><button class="InputCss">C</button></td>
                         <td><button class="InputCss" onclick="send()">/</button></td>
@@ -111,6 +109,6 @@
     <!--Script For Nav-->
     <script src="/src/index.js"></script><!--Main Calculator Functionality-->
     <script src="/src/jsfiles/navMobile.js"></script><!--Navigation Bars-->
-    <script src="/src/jsfiles/audio.js"></script><!--Audio Script-->
+    <script src="/src/jsfiles/theme2.js"></script><!--Audio Script-->
 </body>
 </html>
