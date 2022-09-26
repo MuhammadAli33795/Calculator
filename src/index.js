@@ -4,6 +4,7 @@ let display2 = document.getElementById('display2');
 let button = document.querySelectorAll('button');
 console.log('Node List = ' + button);
 let count = 0;
+let cPress = 1;//Shows C is used or not
 let errorMessage = "'Error' Press C to reset";
 
 //To detect screen change
@@ -53,6 +54,7 @@ for (let i = 0; i < button.length; i++) {
                 displayI.value = "0";
                 display2.value = "";
                 count = 0;
+                cPress = 1;//Shows C is used or not
                 break;
             case '<i class="fa-solid fa-landmark"></i>': //Theme Icon
             case '<i class="fa-solid fa-face-smile"></i>'://Theme Icon2
@@ -84,6 +86,7 @@ for (let i = 0; i < button.length; i++) {
                     break;
                 }           
             default:
+                if(cPress == 1){zeroUse(button[i].innerHTML);}//When 0 in output box should stay
                 errorReset();//Reset Value after error
                 displayI.value += button[i].innerHTML;
                 break;
@@ -118,7 +121,17 @@ for (let i = 0; i < button.length; i++) {
         displayI.value = "0";
         display2.value = "";
         count = 0;
-    }
+    }};
+
+    function zeroUse(i) {
+        switch (i) {
+            case '.': case '+': case '-': case '*': case '/':
+                break;
+            default:
+                displayI.value = "";
+                cPress = 0;
+                break;
+        }
     }
     //Changes Output box size according to port
     function inputSize() {
