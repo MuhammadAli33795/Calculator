@@ -35,23 +35,24 @@ for (let i = 0; i < button.length; i++) {
         switch (button[i].innerHTML) {
             case '=':
                 if (count != 1){
-                try {
-                    send();
-                    displayI.value = eval(display2.value);
-                count = 1;
-                if (mute == "1") {resultSound.play();/*Adding sound on Result*/}//To Stop and Play sounds
-                break;
-                } catch {
-                    count = errorMessage;
-                    displayI.value = errorMessage;
-                    if (mute == "1") {errorSound.play();/*errorSound*/}//To Stop and Play sounds
-                    break;
-                }
+                    try {
+                        //send();
+                        displayI.value = eval(display2.value);
+                        count = 1;
+                        if (mute == "1") {resultSound.play();/*Adding sound on Result*/}//To Stop and Play sounds
+                        break;
+                    } catch {
+                        count = errorMessage;
+                        displayI.value = errorMessage;
+                        if (mute == "1") {errorSound.play();/*errorSound*/}//To Stop and Play sounds
+                        break;
+                    }
                 }
                 break;
             case 'C':
                 displayI.value = "";
                 display2.value = "";
+                count = 0;
                 break;
             case '<i class="fa-solid fa-landmark"></i>': //Theme Icon
             case '<i class="fa-solid fa-face-smile"></i>'://Theme Icon2
@@ -83,7 +84,6 @@ for (let i = 0; i < button.length; i++) {
                     break;
                 }           
             default:
-                solve();//reset Calculator After peroforming 
                 displayI.value += button[i].innerHTML;
                 break;
         }
@@ -101,18 +101,15 @@ for (let i = 0; i < button.length; i++) {
 
    //Push Value to input 2
    function send() {
-    display2.value += displayI.value;
-    displayI.value = "";
-
-    }
-    //Resets the value after solution
-    function solve() {
-    if (count == 1 || count == errorMessage) {
+    if (count == 1) {
+        display2.value = displayI.value;
         displayI.value = "";
-        display2.value = "";
         count = 0;
-        //console.log(count);
-    }
+    } else {
+      display2.value += displayI.value;
+      displayI.value = "";
+      count = 0;
+    };
     }
     //Changes Output box size according to port
     function inputSize() {
@@ -122,7 +119,6 @@ for (let i = 0; i < button.length; i++) {
         } else if (viewPortWidth >= 1024) {
             displayI.size = 23;
             display2.size = 29;
-            
         } else {}
     }
     //Button sound Exclusion
