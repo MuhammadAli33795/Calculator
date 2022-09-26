@@ -34,7 +34,9 @@ for (let i = 0; i < button.length; i++) {
         //Added switch for addig Math
         switch (button[i].innerHTML) {
             case '=':
+                if (count != 1){
                 try {
+                    send();
                     displayI.value = eval(display2.value);
                 count = 1;
                 if (mute == "1") {resultSound.play();/*Adding sound on Result*/}//To Stop and Play sounds
@@ -44,6 +46,7 @@ for (let i = 0; i < button.length; i++) {
                     displayI.value = errorMessage;
                     if (mute == "1") {errorSound.play();/*errorSound*/}//To Stop and Play sounds
                     break;
+                }
                 }
                 break;
             case 'C':
