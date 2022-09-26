@@ -50,7 +50,7 @@ for (let i = 0; i < button.length; i++) {
                 }
                 break;
             case 'C':
-                displayI.value = "";
+                displayI.value = "0";
                 display2.value = "";
                 count = 0;
                 break;
@@ -115,7 +115,7 @@ for (let i = 0; i < button.length; i++) {
 
     function errorReset() {
         if (count == errorMessage) {//After Error Resets values
-        displayI.value = "";
+        displayI.value = "0";
         display2.value = "";
         count = 0;
     }
