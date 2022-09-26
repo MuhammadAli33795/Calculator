@@ -84,6 +84,7 @@ for (let i = 0; i < button.length; i++) {
                     break;
                 }           
             default:
+                errorReset();//Reset Value after error
                 displayI.value += button[i].innerHTML;
                 break;
         }
@@ -110,6 +111,14 @@ for (let i = 0; i < button.length; i++) {
       displayI.value = "";
       count = 0;
     };
+    }
+
+    function errorReset() {
+        if (count == errorMessage) {//After Error Resets values
+        displayI.value = "";
+        display2.value = "";
+        count = 0;
+    }
     }
     //Changes Output box size according to port
     function inputSize() {
