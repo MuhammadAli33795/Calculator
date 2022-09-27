@@ -2,8 +2,9 @@
 let displayI = document.getElementById('display');
 let display2 = document.getElementById('display2');
 let button = document.querySelectorAll('button');
-console.log('Node List = ' + button);
-let count = 0;
+
+let expr = '';//String to be solved
+let count = 0;//Flag for Behaviour after equal to has pressed
 let cPress = 1;//Shows C is used or not
 let errorMessage = "'Error' Press C to reset";
 
@@ -28,17 +29,22 @@ let hoverSound = new Audio('/audio/HoverSound.mp3');
 for (let i = 0; i < button.length; i++) {
     //To Know when and where button was pushed i used Event listner
     button[i].addEventListener("click", (show) => {
+        console.log('expr = ' + expr);
             //Debug :- displayI.value += button[i].innerHTML;   
         //Adding Button audio
             if (mute == "1") {buttonExclusion(i);}//To Stop and Play sounds
 
         //Added switch for addig Math
         switch (button[i].innerHTML) {
+            case '<i class="fa-solid fa-landmark"></i>': //Theme Icon
+            case '<i class="fa-solid fa-face-smile"></i>'://Theme Icon2
+            case '<i class="fa-sharp fa-solid fa-volume-high"></i>'://VolumeON
+            case '<i class="fa-solid fa-volume-xmark"></i>'://VolumeOff
             case '=':
                 if (count != 1){
                     try {
                         //send();
-                        displayI.value = eval(display2.value);
+                        displayI.value = eval(expr);
                         count = 1;
                         if (mute == "1") {resultSound.play();/*Adding sound on Result*/}//To Stop and Play sounds
                         break;
@@ -53,13 +59,11 @@ for (let i = 0; i < button.length; i++) {
             case 'C':
                 displayI.value = "0";
                 display2.value = "";
+                expr = '';
                 count = 0;
                 cPress = 1;//Shows C is used or not
                 break;
-            case '<i class="fa-solid fa-landmark"></i>': //Theme Icon
-            case '<i class="fa-solid fa-face-smile"></i>'://Theme Icon2
-            case '<i class="fa-sharp fa-solid fa-volume-high"></i>'://VolumeON
-            case '<i class="fa-solid fa-volume-xmark"></i>'://VolumeOff
+            
                 break;    
             /*
             case '&#177;'://(+/-) changing functionality Functionality
@@ -105,25 +109,79 @@ for (let i = 0; i < button.length; i++) {
 
    //Push Value to input 2
    function send() {
-    if (count == 1) {
-        display2.value = displayI.value;
-        displayI.value = "";
-        count = 0;
-    } else {
-      display2.value += displayI.value;
-      displayI.value = "";
-      count = 0;
+        if (count == 1) {//when you have to use result 
+            display2.value = displayI.value;
+            expr = displayI.value;
+            displayI.value = "";
+            count = 0;
+        } else {
+            display2.value += displayI.value;//Push expression to second display
+                correction();//Corrects string for evalutaion
+            expr += displayI.value;//push expression to expr solving string
+            console.log('expr = ' + expr);
+            displayI.value = "";//Empty Display1
+            count = 0;
+        };
     };
+    
+    function correction() {//For Fixing user errors before evaluation
+        //For left Bracket
+        if (displayI.value.indexOf('(') != -1) {
+            leftBracket();
+        };
+        console.log('');
+        console.log('displayI = ' + displayI.value);
+        console.log('expr = ' + expr);
+        console.log('');
+        if (displayI.value.indexOf(')') != -1) {
+            rightBracket();
+        }
     }
+          
+        function leftBracket() {//Add '*' behind '(' to store in expr for evaluation
+            console.log('leftBracket');
+            let string = displayI.value; console.log('string = ' + string);
+            let place = string.indexOf('('); console.log('place = ' + place);
+            let prePlace = string[place - 1]; console.log('prePlace = ' + prePlace);
+            switch (prePlace) {
+                case '+': case '-': case '*': case '/': case '': case '(': case undefined:
+                    break;
+                default:
+                    let preValue = string.slice(0, place); console.log( 'preValue = ' + preValue);
+                    preValue = preValue + '*';
+                    let postValue = string.slice(place, string.length); console.log('postValue = ' + postValue);
+                    string = preValue + postValue; console.log('string = ' + string);
+                    break;
+            };
+            displayI.value = string; console.log('displayI = ' + displayI.value);
+        };
 
-    function errorReset() {
-        if (count == errorMessage) {//After Error Resets values
+        function rightBracket() {//Add '*' after '(' to store in expr for evaluation
+            console.log('rightBracket');
+            let string = displayI.value; console.log('string = ' + string);
+            let place = string.indexOf(')'); console.log('place = ' + place);
+            let prePlace = string[place + 1]; console.log('prePlace = ' + prePlace);
+            switch (prePlace) {
+                case '+': case '-': case '*': case '/': case '': case undefined:
+                    break;
+                default:
+                    let preValue = string.slice(0, place + 1);
+                    preValue = preValue + '*'; console.log( 'preValue = ' + preValue);
+                    let postValue = string.slice(place + 1, string.length); console.log('postValue = ' + postValue);
+                    string = preValue + postValue; console.log('string = ' + string);
+                    break;
+            };            
+            displayI.value = string; console.log('displayI = ' + displayI.value);
+        };
+    function errorReset() {//After Error Resets values
+        if (count == errorMessage) {
         displayI.value = "0";
         display2.value = "";
+        expr = '';
         count = 0;
     }};
 
-    function zeroUse(i) {
+    function zeroUse(i) {//Determines when to place zero in Output
         switch (i) {
             case '.': case '+': case '-': case '*': case '/':
                 break;
@@ -133,6 +191,7 @@ for (let i = 0; i < button.length; i++) {
                 break;
         }
     }
+
     //Changes Output box size according to port
     function inputSize() {
         if (viewPortWidth >= 640 && viewPortWidth <= 1024) {
