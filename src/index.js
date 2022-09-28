@@ -6,6 +6,8 @@ let button = document.querySelectorAll('button');
 let expr = '';//String to be solved
 let count = 0;//Flag for Behaviour after equal to has pressed
 let cPress = 1;//Shows C is used or not
+let lbPress = '0';//Checks if Left Bracket has Been Pressed twice
+let rbPress = '0';//Checks if Right Bracket has been Pressed Twice
 let errorMessage = "'Error' Press C to reset";
 
 //To detect screen change
@@ -17,8 +19,6 @@ inputSize();
 let buttonSound = new Audio('/audio/ButtonPopSound.mp3');
 let resultSound = new Audio('/audio/resultSound.mp3');
 let errorSound = new Audio('/audio/errorSound.mp3');
-
-
 
 /*Feature Disabled
 //to add sound on hover
@@ -43,7 +43,7 @@ for (let i = 0; i < button.length; i++) {
             case '=':
                 if (count != 1){
                     try {
-                        //send();
+                        bracketCheck();//Checks For missing Brackets and Add them
                         displayI.value = eval(expr);
                         count = 1;
                         if (mute == "1") {resultSound.play();/*Adding sound on Result*/}//To Stop and Play sounds
@@ -62,9 +62,10 @@ for (let i = 0; i < button.length; i++) {
                 expr = '';
                 count = 0;
                 cPress = 1;//Shows C is used or not
+                lbPress = '0';
+                rbPress = '0';
                 break;
-            
-                break;    
+                
             /*
             case '&#177;'://(+/-) changing functionality Functionality
                 displayI.value = PM();
@@ -110,50 +111,53 @@ for (let i = 0; i < button.length; i++) {
    //Push Value to input 2
    function send() {
         if (count == 1) {//when you have to use result 
-            display2.value = displayI.value;
-            expr = displayI.value;
-            displayI.value = "";
+            display2.value += displayI.value;//Push expression to second display
+            expr += displayI.value;//push expression to expr solving string
+            correction();//Corrects string for evalutaion
+            console.log('expr after correction = ' + expr);
+            displayI.value = "";//Empty Display1
             count = 0;
         } else {
             display2.value += displayI.value;//Push expression to second display
-                correction();//Corrects string for evalutaion
             expr += displayI.value;//push expression to expr solving string
-            console.log('expr = ' + expr);
+            console.log('expr Before correction = ' + expr);
+            correction();//Corrects string for evalutaion
+            console.log('expr after correction = ' + expr);
             displayI.value = "";//Empty Display1
             count = 0;
         };
     };
     
     function correction() {//For Fixing user errors before evaluation
+        console.log('displayI Before correction = ' + displayI.value);
         //For left Bracket
-        if (displayI.value.indexOf('(') != -1) {
+        if (lbPress == '1') {
             leftBracket();
+            lbPress = '0';
+        };
+        //For Right Bracket
+        if (rbPress == '1') {
+            rightBracket();
+            rbPress = '0';
         };
         console.log('');
-        console.log('displayI = ' + displayI.value);
-        console.log('expr = ' + expr);
+        console.log('displayI after correction = ' + displayI.value);
         console.log('');
-        if (displayI.value.indexOf(')') != -1) {
-            rightBracket();
-        }
-    }
-          
+    };
+        //Bracket Functions
         function leftBracket() {//Add '*' behind '(' to store in expr for evaluation
             console.log('leftBracket');
-            let string = displayI.value; console.log('string = ' + string);
-            let place = string.indexOf('('); console.log('place = ' + place);
-            let prePlace = string[place - 1]; console.log('prePlace = ' + prePlace);
+            let string = expr; console.log('string = ' + string);
+            //let place = string.indexOf('('); console.log('place = ' + place);
+            let prePlace = string[string.length - 1]; console.log('prePlace = ' + prePlace);
             switch (prePlace) {
                 case '+': case '-': case '*': case '/': case '': case '(': case undefined:
                     break;
                 default:
-                    let preValue = string.slice(0, place); console.log( 'preValue = ' + preValue);
-                    preValue = preValue + '*';
-                    let postValue = string.slice(place, string.length); console.log('postValue = ' + postValue);
-                    string = preValue + postValue; console.log('string = ' + string);
+                    expr = expr + '*'; console.log('displayI = ' + displayI.value);
                     break;
             };
-            displayI.value = string; console.log('displayI = ' + displayI.value);
+            //expr = expr + '*'; console.log('displayI = ' + displayI.value);
         };
 
         function rightBracket() {//Add '*' after '(' to store in expr for evaluation
@@ -171,8 +175,22 @@ for (let i = 0; i < button.length; i++) {
                     string = preValue + postValue; console.log('string = ' + string);
                     break;
             };            
-            displayI.value = string; console.log('displayI = ' + displayI.value);
+            expr = string; console.log('displayI = ' + displayI.value);
         };
+        function bracketCheck() {//Add '(' or ')' when one is missing
+            console.log('expr in bracketCheck = ' + expr);
+            
+        };
+
+            function bracketTwiceL() {//Checks if Left Bracket has been Pressed Twice
+                lbPress = '1';
+            };
+            function bracketTwiceR() {//Checks if Right Bracket has been Pressed Twice
+                rbPress = '1';
+            }; 
+
+
+    //After Error Resets values
     function errorReset() {//After Error Resets values
         if (count == errorMessage) {
         displayI.value = "0";
@@ -181,16 +199,18 @@ for (let i = 0; i < button.length; i++) {
         count = 0;
     }};
 
-    function zeroUse(i) {//Determines when to place zero in Output
+    //Determines when to place zero in Output
+    function zeroUse(i) {
         switch (i) {
             case '.': case '+': case '-': case '*': case '/':
+                cPress = 0;
                 break;
             default:
                 displayI.value = "";
                 cPress = 0;
                 break;
         }
-    }
+    };
 
     //Changes Output box size according to port
     function inputSize() {
@@ -201,7 +221,7 @@ for (let i = 0; i < button.length; i++) {
             displayI.size = 23;
             display2.size = 29;
         } else {}
-    }
+    };
     //Button sound Exclusion
     function buttonExclusion(flag) {
         switch (button[flag].innerHTML) {
