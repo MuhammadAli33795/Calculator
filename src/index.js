@@ -29,7 +29,7 @@ let hoverSound = new Audio('/audio/HoverSound.mp3');
 for (let i = 0; i < button.length; i++) {
     //To Know when and where button was pushed i used Event listner
     button[i].addEventListener("click", (show) => {
-        console.log('expr = ' + expr);
+        
             //Debug :- displayI.value += button[i].innerHTML;   
         //Adding Button audio
             if (mute == "1") {buttonExclusion(i);}//To Stop and Play sounds
@@ -43,6 +43,7 @@ for (let i = 0; i < button.length; i++) {
             case '=':
                 if (count != 1){
                     try {
+                        bracketCorrection();//Corrects The Bracket '(', ')' before evaluation
                         bracketCheck();//Checks For missing Brackets and Add them
                         displayI.value = eval(expr);
                         count = 1;
@@ -113,23 +114,18 @@ for (let i = 0; i < button.length; i++) {
         if (count == 1) {//when you have to use result 
             display2.value += displayI.value;//Push expression to second display
             expr += displayI.value;//push expression to expr solving string
-            correction();//Corrects string for evalutaion
-            console.log('expr after correction = ' + expr);
             displayI.value = "";//Empty Display1
             count = 0;
         } else {
             display2.value += displayI.value;//Push expression to second display
             expr += displayI.value;//push expression to expr solving string
-            console.log('expr Before correction = ' + expr);
-            correction();//Corrects string for evalutaion
-            console.log('expr after correction = ' + expr);
             displayI.value = "";//Empty Display1
             count = 0;
         };
     };
     
+/*//Old Bracket Fuction Not Usable Broke to much Fuctionality Changed
     function correction() {//For Fixing user errors before evaluation
-        console.log('displayI Before correction = ' + displayI.value);
         //For left Bracket
         if (lbPress == '1') {
             leftBracket();
@@ -138,11 +134,9 @@ for (let i = 0; i < button.length; i++) {
         //For Right Bracket
         if (rbPress == '1') {
             rightBracket();
+            console.log('Right Called');
             rbPress = '0';
         };
-        console.log('');
-        console.log('displayI after correction = ' + displayI.value);
-        console.log('');
     };
         //Bracket Functions
         function leftBracket() {//Add '*' behind '(' to store in expr for evaluation
@@ -154,14 +148,14 @@ for (let i = 0; i < button.length; i++) {
                 case '+': case '-': case '*': case '/': case '': case '(': case undefined:
                     break;
                 default:
-                    expr = expr + '*'; console.log('displayI = ' + displayI.value);
+                    expr = expr + '*'; console.log('expr = ' + expr);
                     break;
             };
-            //expr = expr + '*'; console.log('displayI = ' + displayI.value);
+            lbPress = '0'; console.log('lbPress = ' + lbPress);
         };
 
         function rightBracket() {//Add '*' after '(' to store in expr for evaluation
-            console.log('rightBracket');
+            //console.log('rightBracket');
             let string = displayI.value; console.log('string = ' + string);
             let place = string.indexOf(')'); console.log('place = ' + place);
             let prePlace = string[place + 1]; console.log('prePlace = ' + prePlace);
@@ -174,22 +168,110 @@ for (let i = 0; i < button.length; i++) {
                     let postValue = string.slice(place + 1, string.length); console.log('postValue = ' + postValue);
                     string = preValue + postValue; console.log('string = ' + string);
                     break;
-            };            
-            expr = string; console.log('displayI = ' + displayI.value);
+            };
+            console.log('string = ' + string);
+            expr += string;
+            rbPress = 0; console.log('rbPress = ' + rbPress);
         };
-        function bracketCheck() {//Add '(' or ')' when one is missing
-            console.log('expr in bracketCheck = ' + expr);
-            
-        };
-
-            function bracketTwiceL() {//Checks if Left Bracket has been Pressed Twice
+            function bracketTwiceL() {//Checks if Left Bracket has been Pressed
                 lbPress = '1';
             };
-            function bracketTwiceR() {//Checks if Right Bracket has been Pressed Twice
+            function bracketTwiceR() {//Checks if Right Bracket has been Pressed
                 rbPress = '1';
             }; 
 
+*/
+    
+    //Bracket Functions
+        function bracketCorrection() {//Corrects The Bracket '(', ')' before evaluation
+            let string = expr;
+        //For loop to check position of strings
+            for (let i = 0; i < string.length; i++) {
+                //Check if ( has been found
+                if (string[i] == '(') {
+                    let prePlace = string[i - 1];                    
+                    switch (prePlace) {
+                        case '+': case '-': case '*': case '/': case '': case '(': case undefined:
+                            break;
 
+                        default:
+                            let preValue = string.slice(0, i);
+                            preValue = preValue + '*';                             
+                            let postValue = string.slice(i, string.length);        
+                            string = preValue + postValue; 
+                        break;
+                    }
+                } else if (string[i] == ')') {  
+                    let postPlace = string[i + 1];  
+                    switch (postPlace) {
+                        case '+': case '-': case '*': case '/': case '': case ')': case undefined:
+                        break;
+
+                    default:
+                        let preValue = string.slice(0, i + 1);
+                        preValue = preValue + '*';              
+                        let postValue = string.slice(i + 1, string.length); 
+                        string = preValue + postValue;   
+                        break;
+                    }
+                }
+            }
+            expr = string;
+        };    
+
+        function bracketCheck() {//Add '(' or ')' when one is missing before evaluation
+            let string = expr;//Storing For Usage Here
+            let lneed = 0;
+            let rneed = 0;
+            for (let i = 0; i < string.length; i++) { 
+                //'(' Left bracket check
+                if(string[i] == '('){
+                    rneed += 1;
+       
+                    console.log('( Found at String = ' + i)
+                    console.log('rneed = ' + rneed);
+                }
+                // ')' Right bracket check 
+                else if (string[i] == ')') {
+                    rneed -= 1;
+                    if (rneed < 0) {
+                        rneed = 0;
+                    };
+                console.log(' ) Found at String = ' + i)
+                console.log('rneed = ' + rneed);
+                };
+                console.log('');
+            };
+            for (let i = string.length - 1; i >= 0; i--) {
+    
+                //')' Left bracket check
+                if(string[i] == ')'){
+                    lneed += 1;
+                }
+                // '(' Right bracket check 
+                else if (string[i] == '(') {
+                    lneed -= 1;
+                        if (lneed < 0) {
+                            lneed = 0;
+                        };
+                    };
+                };
+
+            //Adding Brackets
+            if (lneed != 0){
+                for (let i = 1; i < lneed + 1; i++) {//Left Brackets
+                    expr = '(' + expr;
+                };
+            };
+            if (rneed != 0){
+                for (let i = 1; i < rneed + 1; i++) {//Right Brackets
+                    expr = expr + ')';
+                };
+            };
+        };
+
+
+             
     //After Error Resets values
     function errorReset() {//After Error Resets values
         if (count == errorMessage) {
