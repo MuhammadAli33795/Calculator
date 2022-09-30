@@ -3,17 +3,14 @@ let displayI = document.getElementById('display');
 let display2 = document.getElementById('display2');
 let button = document.querySelectorAll('button');
 
+
+//To detect screen change
+inputSize(); // Changes size of input box Output Screen
+
 let expr = '';//String to be solved
 let count = 0;//Flag for Behaviour after equal to has pressed
 let cPress = 1;//Shows C is used or not
-let lbPress = '0';//Checks if Left Bracket has Been Pressed twice
-let rbPress = '0';//Checks if Right Bracket has been Pressed Twice
 let errorMessage = "'Error' Press C to reset";
-
-//To detect screen change
-let viewPortWidth = window.innerWidth;
-console.log('View Port Width = ' + viewPortWidth);
-inputSize();
 
 //Audio Keys
 let buttonSound = new Audio('/audio/ButtonPopSound.mp3');
@@ -227,9 +224,6 @@ for (let i = 0; i < button.length; i++) {
                 //'(' Left bracket check
                 if(string[i] == '('){
                     rneed += 1;
-       
-                    console.log('( Found at String = ' + i)
-                    console.log('rneed = ' + rneed);
                 }
                 // ')' Right bracket check 
                 else if (string[i] == ')') {
@@ -237,8 +231,6 @@ for (let i = 0; i < button.length; i++) {
                     if (rneed < 0) {
                         rneed = 0;
                     };
-                console.log(' ) Found at String = ' + i)
-                console.log('rneed = ' + rneed);
                 };
                 console.log('');
             };
@@ -293,17 +285,22 @@ for (let i = 0; i < button.length; i++) {
                 break;
         }
     };
-
+    
+    
     //Changes Output box size according to port
     function inputSize() {
-        if (viewPortWidth >= 640 && viewPortWidth <= 1024) {
+        let tableWidth = document.getElementById('tableId').clientWidth; //Table Width
+        console.log(tableWidth);
+        
+        if (tableWidth == 388) {
             displayI.size = 21;
             display2.size = 29;
-        } else if (viewPortWidth >= 1024) {
+        } else if (tableWidth == 484) {
             displayI.size = 23;
             display2.size = 29;
-        } else {}
+        }
     };
+    
     //Button sound Exclusion
     function buttonExclusion(flag) {
         switch (button[flag].innerHTML) {

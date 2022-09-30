@@ -9,11 +9,12 @@
     .menueCss { @apply ml-5 mt-5 sm:ml-10 sm:mt-10 lg:ml-16 lg:mt-16 xl:ml-20 xl:mt-20 ; }
     /*Drop Menue*/
         .dropMenue {
-            @apply text-center py-2 brightness-125 bg-gradient-to-b  from-pink-500 via-pink-400  to-pink-300 text-slate-300;
+            @apply w-full text-center py-2 brightness-125 bg-gradient-to-b  from-pink-500 via-pink-400  to-pink-300 text-slate-300;
         }
         .dropMenue {
             @apply mt-5 sm:mt-6 md:mt-8 lg:mt-10 pb-5 sm:pb-6 lg:pb-10;
         }
+        
     /*Heading Css*/
     .heading2 {
         @apply text-xl my-2 sm:text-2xl lg:text-4xl lg:my-4;
@@ -37,7 +38,7 @@
 /*Input Box*/
 /*Output Box*/
     .divCss {
-       @apply w-max px-2 lg:px-2 border-2 bg-white border-orange-500 rounded-md text-gray-500;
+       @apply px-2 lg:px-1 border-2 bg-white border-orange-500 rounded-md text-gray-500;
     }
     
     input {
@@ -71,7 +72,7 @@
             }    
     /*Input buttons*/
         .InputCss {
-            @apply p-4 py-3 w-12 drop-shadow-lg shadow-xl rounded-full  bg-orange-500   cursor-pointer hover:bg-orange-300 transition ease-in-out;
+            @apply p-4 py-3 w-12 shadow-xl  rounded-full  bg-orange-500   cursor-pointer hover:bg-orange-300 transition ease-in-out;
         }
         /*At sm Input Buttons*/
             .InputCss {
@@ -80,7 +81,7 @@
         /*At lg Input Buttons*/
             .InputCss {
                 @apply lg:p-8 lg:py-3 lg:w-20 lg:rounded-lg;
-            }    
+            }       
 /*Table Background*/
 table {
     @apply bg-tableImage bg-center bg-cover;
