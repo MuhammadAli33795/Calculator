@@ -3,10 +3,10 @@ let displayI = document.getElementById('display');
 let display2 = document.getElementById('display2');
 let button = document.querySelectorAll('button');
 
-
 //To detect screen change
-inputSize(); // Changes size of input box Output Screen
-
+//inputSize(); // Changes size of input box Output Screen
+//On clicking input
+//clickInput();
 let expr = '';//String to be solved
 let count = 0;//Flag for Behaviour after equal to has pressed
 let cPress = 1;//Shows C is used or not
@@ -25,9 +25,7 @@ let hoverSound = new Audio('/audio/HoverSound.mp3');
 //To Go through all Buttons in node list i used For loop(For Each can be used however)
 for (let i = 0; i < button.length; i++) {
     //To Know when and where button was pushed i used Event listner
-    button[i].addEventListener("click", (show) => {
-        
-            //Debug :- displayI.value += button[i].innerHTML;   
+    button[i].addEventListener("click", (show) => { 
         //Adding Button audio
             if (mute == "1") {buttonExclusion(i);}//To Stop and Play sounds
 
@@ -37,22 +35,25 @@ for (let i = 0; i < button.length; i++) {
             case '<i class="fa-solid fa-face-smile"></i>'://Theme Icon2
             case '<i class="fa-sharp fa-solid fa-volume-high"></i>'://VolumeON
             case '<i class="fa-solid fa-volume-xmark"></i>'://VolumeOff
+                break;
             case '=':
-                if (count != 1){
                     try {
+                        expr = displayI.value;
                         bracketCorrection();//Corrects The Bracket '(', ')' before evaluation
                         bracketCheck();//Checks For missing Brackets and Add them
-                        displayI.value = eval(expr);
+                        display2.value = displayI.value;
+                        displayI.value = 'Ans = ' + eval(expr);
                         count = 1;
                         if (mute == "1") {resultSound.play();/*Adding sound on Result*/}//To Stop and Play sounds
                         break;
                     } catch {
                         count = errorMessage;
-                        displayI.value = errorMessage;
+                        display2.value = displayI.value;
+                        displayI.value = "'Error' Press C to reset";
                         if (mute == "1") {errorSound.play();/*errorSound*/}//To Stop and Play sounds
                         break;
                     }
-                }
+                //}
                 break;
             case 'C':
                 displayI.value = "0";
@@ -60,52 +61,35 @@ for (let i = 0; i < button.length; i++) {
                 expr = '';
                 count = 0;
                 cPress = 1;//Shows C is used or not
-                lbPress = '0';
-                rbPress = '0';
                 break;
-                
-            /*
-            case '&#177;'://(+/-) changing functionality Functionality
-                displayI.value = PM();
-                break;
-            */
+
             case '&lt;-'://Clear one Functionality
-                if (displayI.value == '' || displayI.value == undefined) {
-                    display2.value = display2.value.slice(0,-1);
-                    break;
-                }
-                else {
+                delAns();//Check for Ans on screen
                 displayI.value = displayI.value.slice(0,-1);
                 break;
-                }
-             //disValue2 == '-' ||
-            case '+'://Repeating Operators User Error Handling    
-            //case '-':    
-            case '*': 
-            case '/': 
-            case '.':
-                let disValue2 = display2.value[display2.value.length - 1];//Storing value for ease of handling
+           
+            case '/': case '*': case '+'://Repeating Operators User Error Handling 
+                let disValue2 = displayI.value[displayI.value.length - 1];//Storing value for ease of handling
                 if (disValue2 == '+' || disValue2 == '*' || disValue2 == '/' || disValue2 == '.' || disValue2 == undefined) {
                     break;
                 }           
             default:
+                delAns();//Check for Ans on screen
                 if(cPress == 1){zeroUse(button[i].innerHTML);}//When 0 in output box should stay
                 errorReset();//Reset Value after error
                 displayI.value += button[i].innerHTML;
                 break;
         }
     })
-    /*//Feature Disabled
+    /*//Hover Sound Feature Disabled
     //Adding audio class for hover sound
         button[i].addEventListener('mouseover' , () => {
         hoverSound.play();
         });
     */
 }
-
-
 /*Additional Functions*/
-
+/*
    //Push Value to input 2
    function send() {
         if (count == 1) {//when you have to use result 
@@ -120,7 +104,7 @@ for (let i = 0; i < button.length; i++) {
             count = 0;
         };
     };
-    
+*/    
 /*//Old Bracket Fuction Not Usable Broke to much Fuctionality Changed
     function correction() {//For Fixing user errors before evaluation
         //For left Bracket
@@ -178,7 +162,6 @@ for (let i = 0; i < button.length; i++) {
             }; 
 
 */
-    
     //Bracket Functions
         function bracketCorrection() {//Corrects The Bracket '(', ')' before evaluation
             let string = expr;
@@ -232,7 +215,6 @@ for (let i = 0; i < button.length; i++) {
                         rneed = 0;
                     };
                 };
-                console.log('');
             };
             for (let i = string.length - 1; i >= 0; i--) {
     
@@ -262,13 +244,11 @@ for (let i = 0; i < button.length; i++) {
             };
         };
 
-
-             
     //After Error Resets values
     function errorReset() {//After Error Resets values
         if (count == errorMessage) {
         displayI.value = "0";
-        display2.value = "";
+        //display2.value = "";
         expr = '';
         count = 0;
     }};
@@ -276,7 +256,7 @@ for (let i = 0; i < button.length; i++) {
     //Determines when to place zero in Output
     function zeroUse(i) {
         switch (i) {
-            case '.': case '+': case '-': case '*': case '/':
+            case '+': case '-': case '*': case '/': case '.':
                 cPress = 0;
                 break;
             default:
@@ -285,9 +265,7 @@ for (let i = 0; i < button.length; i++) {
                 break;
         }
     };
-    
-    
-    //Changes Output box size according to port
+    /*//Changes Output box size according to port
     function inputSize() {
         let tableWidth = document.getElementById('tableId').clientWidth; //Table Width
         console.log(tableWidth);
@@ -300,6 +278,7 @@ for (let i = 0; i < button.length; i++) {
             display2.size = 29;
         }
     };
+    */
     
     //Button sound Exclusion
     function buttonExclusion(flag) {
@@ -311,5 +290,21 @@ for (let i = 0; i < button.length; i++) {
                 break;
         }
     };
-    
-    
+
+    //On Clicking input
+    function clickInput() {
+        let input = document.getElementById('display');
+        let input2 = document.getElementById('display2');
+
+            input.classList.add('onClick');
+            input2.classList.add('onClick');
+
+    }
+
+    //If Equal to is pressed then Remove 'Ans = ' From displayI.value
+    function delAns(){
+        if (count == 1) {
+            displayI.value = displayI.value.slice(6,displayI.value.length);
+            count = 0;
+        }
+    };

@@ -21,9 +21,9 @@
 <body class="">
     <nav class="">
         <!--For Mobiles-->
-        <!--Menue-->
+        <!--Menu-->
         <div class="cursor-pointer menueCss" id="menue">
-            <span><i class="fa-solid fa-bars"></i> Menue</span>
+            <span><i class="fa-solid fa-bars"></i> Menu</span>
         </div>
         <!--Drop Menue-->
         <div class="absolute dropMenue hidden" id="navHidden">
@@ -54,8 +54,8 @@
             <div class="" id="callBox">
                 <!--Display-->
                 <div class="divCss" id="output">
-                    <input id="display" class="input1" type="text" value="0" size="17" placeholder="Display"><br>
-                    <input type="text" id="display2" class="input2" size="21" placeholder="Display 2">
+                    <input id="display" class="input1" type="text" value="0"><br>
+                    <input type="text" id="display2" readonly class="input2">
                 </div>
                 <!--Buttons-->
                 <table id="tableId" class="">
@@ -64,7 +64,7 @@
                         <td><button class="InputCss InputCssTheme2">(</button></td>
                         <td><button class="InputCss">)</button></td>
                         <td><button class="InputCss">C</button></td>
-                        <td><button class="InputCss" onclick="send()">/</button></td>
+                        <td><button class="InputCss">/</button></td>
                         <!--&#247;-->
                     </tr>
                     <!--Row 2-->
@@ -72,7 +72,7 @@
                         <td><button class="InputCss">7</button></td>
                         <td><button class="InputCss">8</button></td>
                         <td><button class="InputCss">9</button></td>
-                        <td><button class="InputCss" onclick="send()">*</button></td>
+                        <td><button class="InputCss">*</button></td>
                         <!--&#215;-->
                     </tr>
                     <!--Row 3-->
@@ -80,7 +80,7 @@
                         <td><button class="InputCss">4</button></td>
                         <td><button class="InputCss">5</button></td>
                         <td><button class="InputCss">6</button></td>
-                        <td><button class="InputCss" onclick="send()">-</button></td>
+                        <td><button class="InputCss">-</button></td>
                         <!--&#8722;-->
                     </tr>
                     <!--Row 4-->
@@ -88,15 +88,15 @@
                         <td><button class="InputCss">1</button></td>
                         <td><button class="InputCss">2</button></td>
                         <td><button class="InputCss">3</button></td>
-                        <td><button class="InputCss" onclick="send()">+</button></td>
+                        <td><button class="InputCss">+</button></td>
                         <!--&#43;-->
                     </tr>
                     <!--Row 5-->
                     <tr>
                         <td><button class="InputCss">0</button></td>
-                        <td><button class="InputCss" onclick="send()">.</button></td>
+                        <td><button class="InputCss">.</button></td>
                         <td><button class="InputCss">&lt;-</button></td>
-                        <td><button class="InputCss" onclick="send()">=</button></td>
+                        <td><button class="InputCss" id="equalTo">=</button></td>
                         <!--&#61;-->
                     </tr>
         
@@ -106,6 +106,7 @@
     </main>
     
     <!--Script For Nav-->
+    <script src="/src/jsfiles/prevent.js"></script><!--Key Prevention-->
     <script src="/src/index.js"></script><!--Main Calculator Functionality-->
     <script src="/src/jsfiles/navMobile.js"></script><!--Navigation Bars-->
     <script src="/src/jsfiles/theme2.js"></script><!--Audio Script-->

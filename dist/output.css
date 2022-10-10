@@ -819,11 +819,13 @@ video {
 }
 
 input {
+  width: 15rem;
   text-align: right;
 }
 
 @media (min-width: 640px) {
   input {
+    width: 100%;
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
   }
@@ -840,8 +842,6 @@ input {
 
 .input1 {
   border-bottom-width: 1px;
-  padding-left: 1px;
-  padding-right: 1px;
   font-size: 1.5rem;
   line-height: 2rem;
 }
@@ -880,6 +880,14 @@ input {
     font-size: 1.875rem;
     line-height: 2.25rem;
   }
+}
+
+/*OnClick*/
+
+.onClick:active {
+  border-bottom-width: 1px;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 /*Table Css*/

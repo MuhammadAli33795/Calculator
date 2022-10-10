@@ -11,7 +11,7 @@ let theme2Button = document.getElementById('theme2');
 
 //Changing To theme 1
 theme1Button.addEventListener('click', () => {
-    console.log('theme1');//Debug purpose
+    //console.log('theme1');//Debug purpose
     menueTheme2.classList.remove('menueCssTheme2');
     navTheme2.classList.remove('dropMenueTheme2');
     bodyTheme2.classList.remove('bodyTheme2');
@@ -20,7 +20,7 @@ theme1Button.addEventListener('click', () => {
 });
 //Changing To theme 2
 theme2Button.addEventListener('click', () => {
-    console.log('theme2');//Debug purpose
+    //console.log('theme2');//Debug purpose
     menueTheme2.classList.add('menueCssTheme2');
     navTheme2.classList.add('dropMenueTheme2');
     bodyTheme2.classList.add('bodyTheme2');

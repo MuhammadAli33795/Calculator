@@ -42,17 +42,21 @@
     }
     
     input {
-        @apply  text-right sm:py-1 lg:py-1;
+        @apply  text-right sm:py-1 lg:py-1 w-60  sm:w-full;
     }
     /*Input 1 :- Output box*/
     .input1 {
-        @apply  text-2xl px-px border-b sm:border-b-2 sm:text-3xl lg:text-4xl;
+        @apply  text-2xl border-b sm:border-b-2 sm:text-3xl lg:text-4xl;
     }
     /*Input 2 :- Output box*/
     .input2 {
         @apply  text-xl sm:text-2xl lg:text-3xl;
     }
     
+    /*OnClick*/
+    .onClick {
+        @apply active:border-b active:outline-none;
+    }
 /*Table Css*/
     table {
        @apply border-2 border-blue-400 rounded-lg text-white;
