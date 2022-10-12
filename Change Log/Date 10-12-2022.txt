@@ -1,0 +1,5 @@
+1 :- '-' Before '*', '/','+' should be replaced.
+2 :- '-' Negative should stay if previous value is '*', '/'.
+3 :- Replace when '+'.
+4 :- Do not repeat when '-'.
+5 :- '0' in the beginning Replaces if '-' is pressed.

@@ -65,14 +65,22 @@ for (let i = 0; i < button.length; i++) {
 
             case '&lt;-'://Clear one Functionality
                 delAns();//Check for Ans on screen
+                if (displayI.value == "0") {
+                    break;
+                }
                 displayI.value = displayI.value.slice(0,-1);
                 break;
            
             case '/': case '*': case '+'://Repeating Operators User Error Handling 
-                let disValue2 = displayI.value[displayI.value.length - 1];//Storing value for ease of handling
-                if (disValue2 == '+' || disValue2 == '*' || disValue2 == '/' || disValue2 == '.' || disValue2 == undefined) {
+                let disValue2 = displayI.value[displayI.value.length - 1];
+                if (disValue2 == '+' || disValue2 == '*' || disValue2 == '/' || disValue2 == '-') {
+                    let value = displayI.value;
+                    value = value.slice(0,value.length - 1);
+                    value = value + show.target.innerHTML;
+                    displayI.value = value;
+                    console.log('Target = ' + show.target.innerHTML);
                     break;
-                }           
+                }
             default:
                 delAns();//Check for Ans on screen
                 if(cPress == 1){zeroUse(button[i].innerHTML);}//When 0 in output box should stay
