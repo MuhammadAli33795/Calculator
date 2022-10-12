@@ -26,6 +26,7 @@ let hoverSound = new Audio('/audio/HoverSound.mp3');
 for (let i = 0; i < button.length; i++) {
     //To Know when and where button was pushed i used Event listner
     button[i].addEventListener("click", (show) => { 
+        delAns();//Check for Ans on screen
         //Adding Button audio
             if (mute == "1") {buttonExclusion(i);}//To Stop and Play sounds
 
@@ -64,25 +65,38 @@ for (let i = 0; i < button.length; i++) {
                 break;
 
             case '&lt;-'://Clear one Functionality
-                delAns();//Check for Ans on screen
                 if (displayI.value == "0") {
                     break;
                 }
                 displayI.value = displayI.value.slice(0,-1);
                 break;
-           
+            case '-': //Neggative Casses
+                let disValue1 = displayI.value[displayI.value.length - 1];
+                if (disValue1 == '-' || disValue1 == '+') {
+                    replaceOperator(show.target.innerHTML);
+                    break;
+                }
+                displayI.value += button[i].innerHTML;
+                if (display1.value[0] == '0') {
+                displayI.value = displayI.value.slice(1,displayI.value.length);
+                }
+                break;
             case '/': case '*': case '+'://Repeating Operators User Error Handling 
-                let disValue2 = displayI.value[displayI.value.length - 1];
-                if (disValue2 == '+' || disValue2 == '*' || disValue2 == '/' || disValue2 == '-') {
-                    let value = displayI.value;
-                    value = value.slice(0,value.length - 1);
-                    value = value + show.target.innerHTML;
-                    displayI.value = value;
-                    console.log('Target = ' + show.target.innerHTML);
+                console.log('case = "/,+,*"');
+                let  disValue2 = displayI.value[displayI.value.length - 1];
+                if (disValue2 == '+' || disValue2 == '*' || disValue2 == '/') {
+                    replaceOperator(show.target.innerHTML);
+                    break;
+                }
+                if (disValue2 == '-') {
+                    let disValue3 = displayI.value[displayI.value.length - 2];
+                    if (disValue3 == '*' || disValue3 == '/') {
+                        break;
+                    }
+                    replaceOperator(show.target.innerHTML);
                     break;
                 }
             default:
-                delAns();//Check for Ans on screen
                 if(cPress == 1){zeroUse(button[i].innerHTML);}//When 0 in output box should stay
                 errorReset();//Reset Value after error
                 displayI.value += button[i].innerHTML;
@@ -316,3 +330,10 @@ for (let i = 0; i < button.length; i++) {
             count = 0;
         }
     };
+    //Replace Previous Operator
+    function replaceOperator(operator) {
+        let value = displayI.value;
+                    value = value.slice(0,value.length - 1);
+                    value = value + operator;
+                    displayI.value = value;
+    }
