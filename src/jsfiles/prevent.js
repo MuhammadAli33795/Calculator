@@ -3,6 +3,7 @@ display1.addEventListener('click', () => {
     let position = display1.value.length;
     display1.setSelectionRange(position,position);
 })
+let valuesN = 1;
 display1.addEventListener('keyup', (e) => {
     delAns();
     switch (e.key) {
@@ -15,7 +16,9 @@ display1.addEventListener('keyup', (e) => {
             }
             if (display1.value[0] == '0') {
                 display1.value = display1.value.slice(1,display1.value.length);
+                valuesN -= 1;
             }
+            valuesN += 1;
             break;
         case '+': case '*': case '/':
 
@@ -34,43 +37,46 @@ display1.addEventListener('keyup', (e) => {
                 break;
             }
         case '0': case '1': case '2': case '3': case '4': case '5': case '6': case '7': case '8': case '9':
-            if (display1.value[0] == '0') {
-            display1.value = display1.value.slice(1,display1.value.length);
-            break;}
+            valuesN += 1;
+            if (display1.value[0] == '0') {display1.value = display1.value.slice(1,display1.value.length);
+            valuesN -= 1;}
             break;
-        case '(': case ')': case '.': case 'Shift': case 'e':
+        case '(': case ')': case '.':
+            valuesN += 1;
+            if (display1.value[0] == '0') {display1.value = display1.value.slice(1,display1.value.length);
+            valuesN -= 1;}
             break;
+        case 'Shift':
+            break;    
         case 'ArrowUp': case 'ArrowDown': case 'ArrowLeft': case 'ArrowRight':
             let position = display1.value.length;
             display1.setSelectionRange(position,position);
             break;    
         case 'Backspace':
             displayEmpty();
+            valuesN -= 1;
             break;
         case 'Enter':
             document.getElementById('equalTo').click();
+            let lengthDis  = displayI.value.slice(6,displayI.value.length);
+            valuesN =  lengthDis.length;
             break;
         case 'c': case 'C':
-            displayI.value = "0";
-            display2.value = "";
-            expr = '';
-            count = 0;
-            cPress = 1;//Shows C is used or not
+            document.getElementById('C').click();
+            valuesN = 1;
             break;
         default:
             console.log('Error Key = ' + e.key);
-            display1.value = display1.value.slice(0,-1);
-            displayEmpty();
-            break;
+            let compare = displayI.value.length;
+            if (valuesN != compare) {
+                display1.value = display1.value.slice(0,-1);
+            }
+            break;    
+    }
+    if (valuesN <= 0) { //Prevent valueN to go in minus
+        valuesN = 1; 
     }
 });
-
-//Empty the display
- function displayEmpty() {
-    if (display1.value == '' || display1.value == undefined) {
-                display1.value = '0';
-    }
- };
  //Replace Previous Operator
     function replaceOperatorK(operator) {
         let value = displayI.value;
@@ -85,4 +91,10 @@ function delAnsK() {
             displayI.value = displayI.value.slice(6,displayI.value.length);
             count = 0;
         }
-};    
+};
+//Empty display
+function displayEmpty(){
+    if (displayI.value == '') {
+        displayI.value = '0';
+    }
+}

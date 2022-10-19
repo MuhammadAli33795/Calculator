@@ -571,10 +571,6 @@ video {
   height: 100vh;
 }
 
-.cursor-pointer {
-  cursor: pointer;
-}
-
 .justify-center {
   justify-content: center;
 }
@@ -583,13 +579,17 @@ video {
   text-align: center;
 }
 
+/*For Pointer Devics*/
+
+@media (hover: hover) {
+}
+
 /*Nav Bar Mobile*/
 
 /*Menue Button*/
 
-.menueCss {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+.menuOption {
+  cursor: pointer;
   transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
@@ -597,12 +597,14 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.menueCss:hover {
+.menuOption:hover {
   --tw-text-opacity: 1;
   color: rgb(249 168 212 / var(--tw-text-opacity));
 }
 
 .menueCss {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
@@ -988,10 +990,13 @@ table {
 /*Body BackGround*/
 
 body {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 115 22 / var(--tw-bg-opacity));
   background-image: url('/img/BGblue.png');
   background-size: cover;
   background-position: center;
   padding-bottom: 4rem;
+  caret-color: #f97316;
 }
 
 /*Theme 2*/
@@ -999,7 +1004,7 @@ body {
 /*Body*/
 
 .bodyTheme2 {
-  background-image: url('/img/blackGoldBG.jpg');
+  background-image: url('/img/Bg Black.webp');
 }
 
 /*Menue*/
@@ -1024,9 +1029,10 @@ body {
 
 .calBoxTheme2 {
   border-radius: 0.5rem;
-  border-width: 4px;
+  border-width: 2px;
+  border-top-width: 0px;
   --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+  border-color: rgb(31 41 55 / var(--tw-border-opacity));
 }
 
 /*Input
@@ -1037,7 +1043,9 @@ body {
 /*Table*/
 
 .tableTheme2 {
-  border-style: none;
+  border-radius: 0px;
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border-color: transparent;
   background-image: url('/img/tableBlack.jpg');
 }
-    

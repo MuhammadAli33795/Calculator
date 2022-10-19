@@ -2,9 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/*For Pointer Devics*/
+@media (hover: hover) {
+    
+}
 /*Nav Bar Mobile*/
     /*Menue Button*/
-    .menueCss { @apply text-white  hover:text-pink-300 transition ease-in-out; }
+    .menuOption { @apply hover:text-pink-300 transition ease-in-out cursor-pointer;}
+    .menueCss { @apply text-white; }
     .menueCss { @apply text-xl sm:text-2xl lg:text-4xl; }
     .menueCss { @apply ml-5 mt-5 sm:ml-10 sm:mt-10 lg:ml-16 lg:mt-16 xl:ml-20 xl:mt-20 ; }
     /*Drop Menue*/
@@ -85,14 +90,14 @@
         /*At lg Input Buttons*/
             .InputCss {
                 @apply lg:p-8 lg:py-3 lg:w-20 lg:rounded-lg;
-            }       
+            }
 /*Table Background*/
 table {
     @apply bg-tableImage bg-center bg-cover;
 }
 /*Body BackGround*/
 body {
-    @apply bg-Bgimage bg-cover bg-center pb-16;
+    @apply bg-Bgimage bg-cover bg-center pb-16 caret-orange-500 bg-orange-500;
 }
 
 /*Theme 2*/
@@ -110,7 +115,7 @@ body {
     }
     /*CalBox*/
     .calBoxTheme2 {
-        @apply border-black border-4 rounded-lg;
+        @apply border-gray-800 border-2 rounded-lg border-t-0;
     }
     /*Input
     .divCsstheme2 {
@@ -118,6 +123,5 @@ body {
     }*/
     /*Table*/
     .tableTheme2 {
-        @apply bg-tableImageTheme2 border-none;
+        @apply bg-tableImageTheme2 border-transparent rounded-none rounded-b-lg;
     }
-    

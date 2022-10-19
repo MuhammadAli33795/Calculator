@@ -1,0 +1,3 @@
+1 :- Use .click function to do stuff at prevent.
+2 :- Some Keyboard Keys not function as intended.
+3 :- e operator repeating.
