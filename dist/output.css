@@ -582,9 +582,17 @@ video {
 /*For Touch Devics*/
 
 @media (pointer: coarse) {
+  .menuOption{
+    /*Menue Button*/
+  }
+
   .menuOption:active {
     --tw-text-opacity: 1;
     color: rgb(249 168 212 / var(--tw-text-opacity));
+  }
+
+  .navButton {
+    /*Nav Buttons*/
   }
 
   .navButton:active {
@@ -594,9 +602,22 @@ video {
     color: rgb(203 213 225 / var(--tw-text-opacity));
   }
 
+  #display {
+    /*Input display*/
+    pointer-events: none;
+  }
+
+  .InputCss {
+    /*Buttons Css*/
+  }
+
   .InputCss:active {
     --tw-bg-opacity: 1;
     background-color: rgb(253 186 116 / var(--tw-bg-opacity));
+  }
+
+  .menueCssTheme2 {
+    /*Menu when Theme Changed*/
   }
 
   .menueCssTheme2:active {
@@ -608,9 +629,17 @@ video {
 /*For Non-Touch Devices*/
 
 @media (pointer: fine) {
+  .menuOption{
+    /*Menue Button*/
+  }
+
   .menuOption:hover {
     --tw-text-opacity: 1;
     color: rgb(249 168 212 / var(--tw-text-opacity));
+  }
+
+  .navButton {
+    /*Nav Buttons*/
   }
 
   .navButton:hover {
@@ -620,9 +649,17 @@ video {
     color: rgb(203 213 225 / var(--tw-text-opacity));
   }
 
+  .InputCss {
+    /*Buttons Css*/
+  }
+
   .InputCss:hover {
     --tw-bg-opacity: 1;
     background-color: rgb(253 186 116 / var(--tw-bg-opacity));
+  }
+
+  .menueCssTheme2 {
+    /*Menu when Theme Changed*/
   }
 
   .menueCssTheme2:hover {
@@ -637,6 +674,10 @@ video {
 
 .menuOption {
   cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
   transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
@@ -644,22 +685,15 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.menueCss {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 @media (min-width: 640px) {
-  .menueCss {
+  .menuOption {
     font-size: 1.5rem;
     line-height: 2rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .menueCss {
+  .menuOption {
     font-size: 2.25rem;
     line-height: 2.5rem;
   }
@@ -944,8 +978,6 @@ td {
   padding: 0.5rem;
 }
 
-/*At sm */
-
 @media (min-width: 640px) {
   td {
     padding: 1rem;
@@ -953,8 +985,6 @@ td {
     padding-bottom: 0.5rem;
   }
 }
-
-/*At lg */
 
 @media (min-width: 1024px) {
   td {
@@ -996,8 +1026,6 @@ td {
     padding-bottom: 0.75rem;
   }
 }
-
-/*At lg Input Buttons*/
 
 @media (min-width: 1024px) {
   .InputCss {
@@ -1074,3 +1102,211 @@ body {
   border-color: transparent;
   background-image: url('/img/tableBlack.jpg');
 }
+
+/*For Mobile Landscape*/
+
+@media (orientation: Landscape){
+  .menueCss{
+    /*Menue Button*/
+    margin-top: 0.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .menueCss {
+      margin-left: 2.5rem;
+      margin-top: 0.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .menueCss {
+      margin-left: 4rem;
+      margin-top: 4rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .menueCss {
+      margin-left: 5rem;
+      margin-top: 5rem;
+    }
+  }
+
+  .dropMenue {
+    /*Droped Menu*/
+    margin-top: 0.25rem;
+    padding-bottom: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .dropMenue {
+      margin-top: 0.5rem;
+      padding-bottom: 1.5rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .dropMenue {
+      margin-top: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .dropMenue {
+      margin-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
+  }
+
+  .calHead {
+    /*Calculator Heading*/
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-bottom: 0.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .calHead {
+      margin-top: 0.25rem;
+      margin-bottom: 0.25rem;
+      font-size: 3rem;
+      line-height: 1;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .calHead {
+      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
+      font-size: 4.5rem;
+      line-height: 1;
+    }
+  }
+
+  .callBox {
+    /*Calculator Box(input-display + Tbale buttons)*/
+  }
+
+  .divCss {
+    /*Input Box*/
+  }
+
+  input {
+    /*Both Input Display boxes*/
+    width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    input {
+      width: 100%;
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    input {
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+    }
+  }
+
+  .input1 {
+    /*Input 1 :- Output box*/
+  }
+
+  @media (min-width: 640px) {
+    .input1 {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .input1 {
+      font-size: 2.25rem;
+      line-height: 2.5rem;
+    }
+  }
+
+  .input2 {
+    /*Input 2 :- Output box*/
+    font-size: 1.25rem;
+    line-height: 1.75rem
+  }
+
+  @media (min-width: 640px) {
+    .input2 {
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .input2 {
+      font-size: 1.875rem;
+      line-height: 2.25rem;
+    }
+  }
+
+  table {
+    /*Table Css*/
+  }
+
+  td {
+    /*Cell Css*/
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+
+  @media (min-width: 640px) {
+    td {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    td {
+      padding: 1.25rem;
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+    }
+  }
+
+  .InputCss {
+    /*Calculator Buttons*/
+    width: 4rem;
+    padding: 0px;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .InputCss {
+      width: 4rem;
+      border-radius: 1.5rem;
+      padding: 0px;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .InputCss {
+      width: 5rem;
+      border-radius: 0.5rem;
+      padding: 2rem;
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+    }
+  }
+}    
