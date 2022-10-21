@@ -865,8 +865,6 @@ video {
   }
 }
 
-/*Input Box*/
-
 /*Output Box*/
 
 .divCss {
@@ -1089,9 +1087,9 @@ body {
 }
 
 /*Input
-    .divCsstheme2 {
-        @apply border-orange-500; 
-    }*/
+.divCsstheme2 {
+    @apply border-orange-500; 
+}*/
 
 /*Table*/
 

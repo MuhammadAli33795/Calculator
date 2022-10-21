@@ -45,72 +45,72 @@
         @apply ml-5 mt-5 sm:ml-10 sm:mt-10 lg:ml-16 lg:mt-16 xl:ml-20 xl:mt-20 ;
     }
     /*Drop Menue*/
-        .dropMenue {
-            @apply w-full text-center py-2 brightness-125 bg-gradient-to-b  from-pink-500 via-pink-400  to-pink-300 text-slate-300;
-        }
-        .dropMenue {
-            @apply mt-5 sm:mt-6 md:mt-8 lg:mt-10 pb-5 sm:pb-6 lg:pb-10;
-        }
+    .dropMenue {
+        @apply w-full text-center py-2 brightness-125 bg-gradient-to-b  from-pink-500 via-pink-400  to-pink-300 text-slate-300;
+    }
+    .dropMenue {
+        @apply mt-5 sm:mt-6 md:mt-8 lg:mt-10 pb-5 sm:pb-6 lg:pb-10;
+    }
         
     /*Heading Css*/
     .heading2 {
         @apply text-xl my-2 sm:text-2xl lg:text-4xl lg:my-4;
     }    
     /*Nav Buttons*/
-        .navButton {
-            @apply p-1 px-2 drop-shadow-lg shadow-xl  text-orange-500 bg-slate-200 rounded-full transition ease-in-out;
-        }
-        .navButton {
-            @apply sm:text-2xl sm:p-2 sm:px-3 lg:text-4xl lg:p-3 lg:px-5;
-        }
+    .navButton {
+        @apply p-1 px-2 drop-shadow-lg shadow-xl  text-orange-500 bg-slate-200 rounded-full transition ease-in-out;
+    }
+    .navButton {
+        @apply sm:text-2xl sm:p-2 sm:px-3 lg:text-4xl lg:p-3 lg:px-5;
+    }
     
 /*Calculator Heading*/
 .calHead {
     @apply text-4xl my-5 text-white;
 }
-    /*At Sm*/
-    .calHead {
+/*At Sm*/
+.calHead {
     @apply sm:text-5xl sm:my-8 lg:my-10 lg:text-7xl;
-    }
-/*Input Box*/
+}
+
 /*Output Box*/
-    .divCss {
-       @apply px-2 lg:px-1 border-2 bg-white border-orange-500 rounded-md text-gray-500;
-    }
+.divCss {
+    @apply px-2 lg:px-1 border-2 bg-white border-orange-500 rounded-md text-gray-500;
+}
     
-    input {
-        @apply  text-right w-60 sm:py-1 lg:py-1  sm:w-full;
-    }
-    /*Input 1 :- Output box*/
-    .input1 {
-        @apply  text-2xl border-b sm:border-b-2 sm:text-3xl lg:text-4xl;
-    }
-    /*Input 2 :- Output box*/
-    .input2 {
-        @apply  text-xl sm:text-2xl lg:text-3xl;
-    }
+input {
+    @apply  text-right w-60 sm:py-1 lg:py-1  sm:w-full;
+}
+/*Input 1 :- Output box*/
+.input1 {
+    @apply  text-2xl border-b sm:border-b-2 sm:text-3xl lg:text-4xl;
+}
+/*Input 2 :- Output box*/
+.input2 {
+    @apply  text-xl sm:text-2xl lg:text-3xl;
+}
     
-    /*OnClick*/
-    .onClick {
-        @apply active:border-b active:outline-none;
-    }
+/*OnClick*/
+.onClick {
+    @apply active:border-b active:outline-none;
+}
 /*Table Css*/
-    table {
-       @apply border-2 border-blue-400 rounded-lg text-white;
-    }
+table {
+    @apply border-2 border-blue-400 rounded-lg text-white;
+}
     
-    /*Cell Css*/
-        td {
-            @apply p-2 sm:p-4 sm:py-2 lg:p-5 lg:py-3;
-        } 
-    /*Input buttons*/
-        .InputCss {
-            @apply p-4 py-3 w-12 shadow-xl  rounded-full  bg-orange-500   cursor-pointer transition ease-in-out;
-        }
-        /*At sm Input Buttons*/
-            .InputCss {
-                @apply sm:p-5 sm:py-3 sm:w-16  sm:rounded-3xl lg:p-8 lg:py-3 lg:w-20 lg:rounded-lg;
-            }
+/*Cell Css*/
+td {
+    @apply p-2 sm:p-4 sm:py-2 lg:p-5 lg:py-3;
+} 
+/*Input buttons*/
+.InputCss {
+    @apply p-4 py-3 w-12 shadow-xl  rounded-full  bg-orange-500   cursor-pointer transition ease-in-out;
+}
+/*At sm Input Buttons*/
+.InputCss {
+    @apply sm:p-5 sm:py-3 sm:w-16  sm:rounded-3xl lg:p-8 lg:py-3 lg:w-20 lg:rounded-lg;
+}
 /*Table Background*/
 table {
     @apply bg-tableImage bg-center bg-cover;
@@ -121,62 +121,60 @@ body {
 }
 
 /*Theme 2*/
-    /*Body*/
-    .bodyTheme2 {
-        @apply bg-BgimageTheme2;
-    }
-    /*Menue*/
-    
-    /*Drop Menue*/
-    .dropMenueTheme2 {
-        @apply from-gray-900 via-gray-700  to-gray-500;
-    }
-    /*CalBox*/
-    .calBoxTheme2 {
-        @apply border-gray-800 border-2 rounded-lg border-t-0;
-    }
-    /*Input
-    .divCsstheme2 {
-        @apply border-orange-500; 
-    }*/
-    /*Table*/
-    .tableTheme2 {
-        @apply bg-tableImageTheme2 border-transparent rounded-none rounded-b-lg;
-    }
+/*Body*/
+.bodyTheme2 {
+    @apply bg-BgimageTheme2;
+}
+/*Menue*/    
+/*Drop Menue*/
+.dropMenueTheme2 {
+    @apply from-gray-900 via-gray-700  to-gray-500;
+}
+/*CalBox*/
+.calBoxTheme2 {
+    @apply border-gray-800 border-2 rounded-lg border-t-0;
+}
+/*Input
+.divCsstheme2 {
+    @apply border-orange-500; 
+}*/
+/*Table*/
+.tableTheme2 {
+    @apply bg-tableImageTheme2 border-transparent rounded-none rounded-b-lg;
+}
 /*For Mobile Landscape*/
-    @media (orientation: Landscape){
-        .menueCss{ /*Menue Button*/
-            @apply mt-2 sm:ml-10 sm:mt-2 lg:ml-16 lg:mt-16 xl:ml-20 xl:mt-20;
-        }
-        .dropMenue { /*Droped Menu*/
-            @apply mt-1 sm:mt-2 md:mt-8 lg:mt-10 pb-5 sm:pb-6 lg:pb-10;
-        }
-        .calHead { /*Calculator Heading*/
-            @apply mb-1 my-0 sm:text-5xl sm:my-1 lg:my-10 lg:text-7xl;
-        }
-        .callBox { /*Calculator Box(input-display + Tbale buttons)*/
+@media (orientation: Landscape){
+    .menueCss{ /*Menue Button*/
+        @apply mt-2 sm:ml-10 sm:mt-2 lg:ml-16 lg:mt-16 xl:ml-20 xl:mt-20;
+    }
+    .dropMenue { /*Droped Menu*/
+        @apply mt-1 sm:mt-2 md:mt-8 lg:mt-10 pb-5 sm:pb-6 lg:pb-10;
+    }
+    .calHead { /*Calculator Heading*/
+        @apply mb-1 my-0 sm:text-5xl sm:my-1 lg:my-10 lg:text-7xl;
+    }
+    .callBox { /*Calculator Box(input-display + Tbale buttons)*/
+    }
+    .divCss { /*Input Box*/
 
-        }
-        .divCss { /*Input Box*/
+    }
+    input { /*Both Input Display boxes*/
+        @apply w-full sm:py-0 lg:py-1  sm:w-full;
+    }
+    .input1 { /*Input 1 :- Output box*/
+        @apply sm:text-2xl lg:text-4xl;
+    }
+    .input2 { /*Input 2 :- Output box*/
+        @apply text-xl sm:text-xl lg:text-3xl
+    }
+    table { /*Table Css*/
 
-        }
-        input { /*Both Input Display boxes*/
-            @apply w-full sm:py-0 lg:py-1  sm:w-full;
-        }
-            .input1 { /*Input 1 :- Output box*/
-                @apply sm:text-2xl lg:text-4xl;
-            }
-            .input2 { /*Input 2 :- Output box*/
-                @apply text-xl sm:text-xl lg:text-3xl
-            }
-        table { /*Table Css*/
+    }
+    td { /*Cell Css*/
+        @apply px-2 py-1 sm:px-2 sm:py-1 lg:p-5 lg:py-3;
+    }
 
-        }
-            td { /*Cell Css*/
-                @apply px-2 py-1 sm:px-2 sm:py-1 lg:p-5 lg:py-3;
-            }
-
-        .InputCss { /*Calculator Buttons*/
-            @apply p-0 py-2 px-2 w-16 sm:p-0 sm:px-2 sm:py-2 sm:w-16  sm:rounded-3xl lg:p-8 lg:py-3 lg:w-20 lg:rounded-lg;;
-        }
-    }    
+    .InputCss { /*Calculator Buttons*/
+        @apply p-0 py-2 px-2 w-16 sm:p-0 sm:px-2 sm:py-2 sm:w-16 sm:rounded-3xl lg:p-8 lg:py-3 lg:w-20 lg:rounded-lg;;
+    }
+}    
