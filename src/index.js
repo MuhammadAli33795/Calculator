@@ -82,7 +82,6 @@ for (let i = 0; i < button.length; i++) {
                 }
                 break;
             case '/': case '*': case '+'://Repeating Operators User Error Handling 
-                console.log('case = "/,+,*"');
                 let  disValue2 = displayI.value[displayI.value.length - 1];
                 if (disValue2 == '+' || disValue2 == '*' || disValue2 == '/') {
                     replaceOperator(show.target.innerHTML);
