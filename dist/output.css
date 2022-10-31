@@ -582,7 +582,7 @@ video {
 /*For Touch Devics*/
 
 @media (pointer: coarse) {
-  .menuOption{
+  .menuOption {
     /*Menue Button*/
   }
 
@@ -604,6 +604,11 @@ video {
 
   #display {
     /*Input display*/
+    pointer-events: none;
+  }
+
+  #display2 {
+    /*Input Display 2*/
     pointer-events: none;
   }
 
@@ -629,8 +634,8 @@ video {
 /*For Non-Touch Devices*/
 
 @media (pointer: fine) {
-  .menuOption{
-    /*Menue Button*/
+  .menuOption {
+    /*Menu Button*/
   }
 
   .menuOption:hover {
@@ -1103,8 +1108,8 @@ body {
 
 /*For Mobile Landscape*/
 
-@media (orientation: Landscape){
-  .menueCss{
+@media (orientation: Landscape) {
+  .menueCss {
     /*Menue Button*/
     margin-top: 0.5rem;
   }
@@ -1230,7 +1235,7 @@ body {
   .input2 {
     /*Input 2 :- Output box*/
     font-size: 1.25rem;
-    line-height: 1.75rem
+    line-height: 1.75rem;
   }
 
   @media (min-width: 640px) {
@@ -1307,4 +1312,4 @@ body {
       padding-bottom: 0.75rem;
     }
   }
-}    
+}
